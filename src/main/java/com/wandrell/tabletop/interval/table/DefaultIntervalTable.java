@@ -15,8 +15,8 @@
  */
 package com.wandrell.tabletop.interval.table;
 
-import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.util.Collections;
 import java.util.Iterator;
@@ -27,13 +27,14 @@ import java.util.TreeMap;
 
 import com.google.common.base.MoreObjects;
 import com.wandrell.tabletop.interval.Interval;
-import com.wandrell.tabletop.interval.util.IntervalComparator;
 import com.wandrell.tabletop.interval.util.IntervalArithmeticsUtils;
+import com.wandrell.tabletop.interval.util.IntervalComparator;
 
 /**
  * Default implementation of {@code IntervalTable}.
  * <p>
- * The table is immutable, and all the intervals used to build it should be consecutive.
+ * The table is immutable, and all the intervals used to build it should be
+ * consecutive.
  * 
  * @author Bernardo Martínez Garrido
  * @param <V>

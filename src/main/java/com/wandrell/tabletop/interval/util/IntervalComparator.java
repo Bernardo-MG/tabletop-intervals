@@ -29,8 +29,8 @@ import com.wandrell.tabletop.interval.Interval;
  * 
  * @author Bernardo Martínez Garrido
  */
-public final class IntervalComparator implements Comparator<Interval>,
-        Serializable {
+public final class IntervalComparator
+        implements Comparator<Interval>, Serializable {
 
     /**
      * Serialization value.
@@ -46,7 +46,8 @@ public final class IntervalComparator implements Comparator<Interval>,
 
     @Override
     public int compare(final Interval intervalA, final Interval intervalB) {
-        checkNotNull(intervalA, "Received a null pointer as the first interval");
+        checkNotNull(intervalA,
+                "Received a null pointer as the first interval");
         checkNotNull(intervalB,
                 "Received a null pointer as the second interval");
 

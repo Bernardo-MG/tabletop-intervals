@@ -27,6 +27,13 @@ package com.wandrell.tabletop.interval;
 public interface Interval {
 
     /**
+     * Returns interval's upper limit.
+     * 
+     * @return the upper limit
+     */
+    public Integer getLowerLimit();
+
+    /**
      * Returns the interval as a string.
      * <p>
      * If the interval has the value 5 as it's lower limit, and the value 7 as
@@ -35,13 +42,6 @@ public interface Interval {
      * @return the interval as a string
      */
     public String getStringRepresentation();
-
-    /**
-     * Returns interval's upper limit.
-     * 
-     * @return the upper limit
-     */
-    public Integer getLowerLimit();
 
     /**
      * Returns the interval's lower limit.

@@ -90,11 +90,6 @@ public final class DefaultInterval implements Interval {
     }
 
     @Override
-    public final String getStringRepresentation() {
-        return String.format("[%d,%d]", getLowerLimit(), getUpperLimit());
-    }
-
-    @Override
     public final boolean equals(final Object obj) {
 
         if (this == obj) {
@@ -119,6 +114,11 @@ public final class DefaultInterval implements Interval {
     @Override
     public final Integer getLowerLimit() {
         return getRange().lowerEndpoint();
+    }
+
+    @Override
+    public final String getStringRepresentation() {
+        return String.format("[%d,%d]", getLowerLimit(), getUpperLimit());
     }
 
     @Override

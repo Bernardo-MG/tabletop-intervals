@@ -65,8 +65,8 @@ public final class IntervalArithmeticsUtils {
 
             lowerDifference = new DefaultInterval(lower, upper);
         } else {
-            // TODO: Throw an exception
-            lowerDifference = null;
+            throw new IllegalArgumentException(
+                    "The intervals are the same or don't overlap");
         }
 
         return lowerDifference;
@@ -110,8 +110,8 @@ public final class IntervalArithmeticsUtils {
 
             upperDifference = new DefaultInterval(lower, upper);
         } else {
-            // TODO: Throw an exception
-            upperDifference = null;
+            throw new IllegalArgumentException(
+                    "The intervals upper limits are the same or the intervals don't overlap");
         }
 
         return upperDifference;
