@@ -27,11 +27,11 @@ import org.slf4j.LoggerFactory;
 import com.wandrell.pattern.parser.Parser;
 import com.wandrell.tabletop.testing.utils.framework.conf.TestXMLConf;
 
-public final class IntervalDifferenceDocumentParser implements
-        Parser<Document, Collection<Collection<Object>>> {
+public final class IntervalDifferenceDocumentParser
+        implements Parser<Document, Collection<Collection<Object>>> {
 
     private static final Logger logger = LoggerFactory
-                                               .getLogger(IntervalDifferenceDocumentParser.class);
+            .getLogger(IntervalDifferenceDocumentParser.class);
 
     private static final Logger getLogger() {
         return logger;
@@ -69,21 +69,21 @@ public final class IntervalDifferenceDocumentParser implements
         intervalB = node.getChild(TestXMLConf.NODE_INTERVAL_B);
         intersection = node.getChild(TestXMLConf.NODE_DIFFERENCE);
 
-        limitLowerA = Integer.parseInt(intervalA.getChild(
-                TestXMLConf.NODE_LOWER_LIMIT).getValue());
-        limitUpperA = Integer.parseInt(intervalA.getChild(
-                TestXMLConf.NODE_UPPER_LIMIT).getValue());
+        limitLowerA = Integer.parseInt(
+                intervalA.getChild(TestXMLConf.NODE_LOWER_LIMIT).getValue());
+        limitUpperA = Integer.parseInt(
+                intervalA.getChild(TestXMLConf.NODE_UPPER_LIMIT).getValue());
 
-        limitLowerB = Integer.parseInt(intervalB.getChild(
-                TestXMLConf.NODE_LOWER_LIMIT).getValue());
-        limitUpperB = Integer.parseInt(intervalB.getChild(
-                TestXMLConf.NODE_UPPER_LIMIT).getValue());
+        limitLowerB = Integer.parseInt(
+                intervalB.getChild(TestXMLConf.NODE_LOWER_LIMIT).getValue());
+        limitUpperB = Integer.parseInt(
+                intervalB.getChild(TestXMLConf.NODE_UPPER_LIMIT).getValue());
 
         if (intersection.getChildren().size() > 0) {
-            limitLowerC = Integer.parseInt(intersection.getChild(
-                    TestXMLConf.NODE_LOWER_LIMIT).getValue());
-            limitUpperC = Integer.parseInt(intersection.getChild(
-                    TestXMLConf.NODE_UPPER_LIMIT).getValue());
+            limitLowerC = Integer.parseInt(intersection
+                    .getChild(TestXMLConf.NODE_LOWER_LIMIT).getValue());
+            limitUpperC = Integer.parseInt(intersection
+                    .getChild(TestXMLConf.NODE_UPPER_LIMIT).getValue());
         } else {
             limitLowerC = null;
             limitUpperC = null;
@@ -99,11 +99,10 @@ public final class IntervalDifferenceDocumentParser implements
         data.add(limitLowerC);
         data.add(limitUpperC);
 
-        getLogger()
-                .debug(String
-                        .format("Read intervals [%d,%d] and [%d,%d] with result [%d,%d]",
-                                limitLowerA, limitUpperA, limitLowerB,
-                                limitUpperB, limitLowerC, limitUpperC));
+        getLogger().debug(String.format(
+                "Read intervals [%d,%d] and [%d,%d] with result [%d,%d]",
+                limitLowerA, limitUpperA, limitLowerB, limitUpperB, limitLowerC,
+                limitUpperC));
 
         return data;
     }

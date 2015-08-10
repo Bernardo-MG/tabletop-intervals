@@ -38,7 +38,8 @@ public final class TestConsecutiveRecognition {
     }
 
     @DataProvider(name = NOT_CONSECUTIVE)
-    public final static Iterator<Object[]> getNotConsecutive() throws Exception {
+    public final static Iterator<Object[]> getNotConsecutive()
+            throws Exception {
         return IntervalValuesTestParametersFactory.getInstance()
                 .getNotConsecutive();
     }
@@ -62,14 +63,13 @@ public final class TestConsecutiveRecognition {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerB);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(upperB);
 
-        Assert.assertTrue(IntervalArithmeticsUtils.isRightAfter(intervalB,
-                intervalA));
+        Assert.assertTrue(
+                IntervalArithmeticsUtils.isRightAfter(intervalB, intervalA));
     }
 
     @Test(dataProvider = NOT_CONSECUTIVE)
-    public final void testIsConsecutiveTo_NotConsecutiveTo(
-            final Integer lowerA, final Integer upperA, final Integer lowerB,
-            final Integer upperB) {
+    public final void testIsConsecutiveTo_NotConsecutiveTo(final Integer lowerA,
+            final Integer upperA, final Integer lowerB, final Integer upperB) {
         final Interval intervalA;
         final Interval intervalB;
 
@@ -82,8 +82,8 @@ public final class TestConsecutiveRecognition {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerB);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(upperB);
 
-        Assert.assertTrue(!IntervalArithmeticsUtils.isRightAfter(intervalB,
-                intervalA));
+        Assert.assertTrue(
+                !IntervalArithmeticsUtils.isRightAfter(intervalB, intervalA));
     }
 
     @Test(dataProvider = CONSECUTIVE)
@@ -101,8 +101,8 @@ public final class TestConsecutiveRecognition {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerB);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(upperB);
 
-        Assert.assertTrue(!IntervalArithmeticsUtils.isContaining(intervalA,
-                intervalB));
+        Assert.assertTrue(
+                !IntervalArithmeticsUtils.isContaining(intervalA, intervalB));
     }
 
     @Test(dataProvider = CONSECUTIVE)
@@ -120,8 +120,8 @@ public final class TestConsecutiveRecognition {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerB);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(upperB);
 
-        Assert.assertTrue(!IntervalArithmeticsUtils.isContaining(intervalB,
-                intervalA));
+        Assert.assertTrue(
+                !IntervalArithmeticsUtils.isContaining(intervalB, intervalA));
     }
 
     @Test(dataProvider = CONSECUTIVE)
@@ -139,7 +139,8 @@ public final class TestConsecutiveRecognition {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerB);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(upperB);
 
-        Assert.assertTrue(IntervalArithmeticsUtils.isNextTo(intervalA, intervalB));
+        Assert.assertTrue(
+                IntervalArithmeticsUtils.isNextTo(intervalA, intervalB));
     }
 
     @Test(dataProvider = CONSECUTIVE)
@@ -157,7 +158,8 @@ public final class TestConsecutiveRecognition {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerB);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(upperB);
 
-        Assert.assertTrue(IntervalArithmeticsUtils.isNextTo(intervalB, intervalA));
+        Assert.assertTrue(
+                IntervalArithmeticsUtils.isNextTo(intervalB, intervalA));
     }
 
     @Test(dataProvider = CONSECUTIVE)
@@ -175,8 +177,8 @@ public final class TestConsecutiveRecognition {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerB);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(upperB);
 
-        Assert.assertTrue(!IntervalArithmeticsUtils.isOverlapped(intervalA,
-                intervalB));
+        Assert.assertTrue(
+                !IntervalArithmeticsUtils.isOverlapped(intervalA, intervalB));
     }
 
     @Test(dataProvider = CONSECUTIVE)
@@ -194,8 +196,8 @@ public final class TestConsecutiveRecognition {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerB);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(upperB);
 
-        Assert.assertTrue(!IntervalArithmeticsUtils.isOverlapped(intervalB,
-                intervalA));
+        Assert.assertTrue(
+                !IntervalArithmeticsUtils.isOverlapped(intervalB, intervalA));
     }
 
     @Test(dataProvider = CONSECUTIVE)
@@ -213,8 +215,8 @@ public final class TestConsecutiveRecognition {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerB);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(upperB);
 
-        Assert.assertTrue(IntervalArithmeticsUtils.isRightBefore(intervalA,
-                intervalB));
+        Assert.assertTrue(
+                IntervalArithmeticsUtils.isRightBefore(intervalA, intervalB));
     }
 
     @Test(dataProvider = CONSECUTIVE)
@@ -232,8 +234,8 @@ public final class TestConsecutiveRecognition {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerB);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(upperB);
 
-        Assert.assertTrue(!IntervalArithmeticsUtils.isRightBefore(intervalB,
-                intervalA));
+        Assert.assertTrue(
+                !IntervalArithmeticsUtils.isRightBefore(intervalB, intervalA));
     }
 
 }

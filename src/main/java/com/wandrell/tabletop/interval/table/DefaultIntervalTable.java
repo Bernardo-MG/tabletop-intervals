@@ -16,6 +16,7 @@
 package com.wandrell.tabletop.interval.table;
 
 import static com.google.common.base.Preconditions.checkNotNull;
+import static com.google.common.base.Preconditions.checkArgument;
 
 import java.util.Collections;
 import java.util.Iterator;
@@ -31,6 +32,8 @@ import com.wandrell.tabletop.interval.util.IntervalArithmeticsUtils;
 
 /**
  * Default implementation of {@code IntervalTable}.
+ * <p>
+ * The table is immutable, and all the intervals used to build it should be consecutive.
  * 
  * @author Bernardo Martínez Garrido
  * @param <V>
@@ -59,7 +62,6 @@ public final class DefaultIntervalTable<V> implements IntervalTable<V> {
             checkNotNull(entry.getKey(), "Received a null pointer as interval");
             checkNotNull(entry.getValue(), "Received a null pointer as value");
 
-            // TODO: Check that the intervals are not overlapping
             getIntervalsModifiable().put(entry.getKey(), entry.getValue());
         }
     }
@@ -75,11 +77,22 @@ public final class DefaultIntervalTable<V> implements IntervalTable<V> {
 
         checkNotNull(intervals, "Received a null pointer as intervals");
 
-        for (final Entry<Interval, V> entry : intervals.entrySet()) {
+        final TreeMap<Interval, V> sortedIntervals;
+
+        sortedIntervals = new TreeMap<Interval, V>(new IntervalComparator());
+
+        sortedIntervals.putAll(intervals);
+
+        for (final Entry<Interval, V> entry : sortedIntervals.entrySet()) {
             checkNotNull(entry.getKey(), "Received a null pointer as interval");
             checkNotNull(entry.getValue(), "Received a null pointer as value");
 
-            // TODO: Check that the intervals are not overlapping
+            if (!getIntervalsModifiable().isEmpty()) {
+                checkArgument(IntervalArithmeticsUtils.isNextTo(
+                        getIntervalsModifiable().lastKey(), entry.getKey()),
+                        "Intervals are not continuous");
+            }
+
             getIntervalsModifiable().put(entry.getKey(), entry.getValue());
         }
     }

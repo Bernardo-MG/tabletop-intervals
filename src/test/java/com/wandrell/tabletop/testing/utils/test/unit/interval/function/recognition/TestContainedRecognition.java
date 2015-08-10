@@ -61,8 +61,8 @@ public final class TestContainedRecognition {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerB);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(upperB);
 
-        Assert.assertTrue(!IntervalArithmeticsUtils.isRightAfter(intervalA,
-                intervalB));
+        Assert.assertTrue(
+                !IntervalArithmeticsUtils.isRightAfter(intervalA, intervalB));
     }
 
     @Test(dataProvider = CONTAINED)
@@ -80,8 +80,8 @@ public final class TestContainedRecognition {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerB);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(upperB);
 
-        Assert.assertTrue(IntervalArithmeticsUtils.isContaining(intervalB,
-                intervalA));
+        Assert.assertTrue(
+                IntervalArithmeticsUtils.isContaining(intervalB, intervalA));
     }
 
     @Test(dataProvider = NOT_CONTAINED)
@@ -99,8 +99,8 @@ public final class TestContainedRecognition {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerB);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(upperB);
 
-        Assert.assertTrue(!IntervalArithmeticsUtils.isContaining(intervalB,
-                intervalA));
+        Assert.assertTrue(
+                !IntervalArithmeticsUtils.isContaining(intervalB, intervalA));
     }
 
     @Test(dataProvider = CONTAINED)
@@ -118,8 +118,8 @@ public final class TestContainedRecognition {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerB);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(upperB);
 
-        Assert.assertTrue(!IntervalArithmeticsUtils
-                .isNextTo(intervalA, intervalB));
+        Assert.assertTrue(
+                !IntervalArithmeticsUtils.isNextTo(intervalA, intervalB));
     }
 
     @Test(dataProvider = CONTAINED)
@@ -137,8 +137,8 @@ public final class TestContainedRecognition {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerB);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(upperB);
 
-        Assert.assertTrue(IntervalArithmeticsUtils.isOverlapped(intervalA,
-                intervalB));
+        Assert.assertTrue(
+                IntervalArithmeticsUtils.isOverlapped(intervalA, intervalB));
     }
 
     @Test(dataProvider = CONTAINED)
@@ -156,8 +156,8 @@ public final class TestContainedRecognition {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerB);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(upperB);
 
-        Assert.assertTrue(IntervalArithmeticsUtils.isOverlapped(intervalB,
-                intervalA));
+        Assert.assertTrue(
+                IntervalArithmeticsUtils.isOverlapped(intervalB, intervalA));
     }
 
     @Test(dataProvider = CONTAINED)
@@ -175,8 +175,8 @@ public final class TestContainedRecognition {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerB);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(upperB);
 
-        Assert.assertTrue(!IntervalArithmeticsUtils.isRightBefore(intervalA,
-                intervalB));
+        Assert.assertTrue(
+                !IntervalArithmeticsUtils.isRightBefore(intervalA, intervalB));
     }
 
 }

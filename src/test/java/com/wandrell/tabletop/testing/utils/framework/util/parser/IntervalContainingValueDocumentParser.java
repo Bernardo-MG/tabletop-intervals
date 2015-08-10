@@ -27,11 +27,11 @@ import org.slf4j.LoggerFactory;
 import com.wandrell.pattern.parser.Parser;
 import com.wandrell.tabletop.testing.utils.framework.conf.TestXMLConf;
 
-public final class IntervalContainingValueDocumentParser implements
-        Parser<Document, Collection<Collection<Object>>> {
+public final class IntervalContainingValueDocumentParser
+        implements Parser<Document, Collection<Collection<Object>>> {
 
     private static final Logger logger = LoggerFactory
-                                               .getLogger(IntervalContainingValueDocumentParser.class);
+            .getLogger(IntervalContainingValueDocumentParser.class);
 
     private static final Logger getLogger() {
         return logger;
@@ -62,22 +62,21 @@ public final class IntervalContainingValueDocumentParser implements
 
         interval = node.getChild(TestXMLConf.NODE_INTERVAL);
 
-        limitLower = Integer.parseInt(interval.getChild(
-                TestXMLConf.NODE_LOWER_LIMIT).getValue());
-        limitUpper = Integer.parseInt(interval.getChild(
-                TestXMLConf.NODE_UPPER_LIMIT).getValue());
+        limitLower = Integer.parseInt(
+                interval.getChild(TestXMLConf.NODE_LOWER_LIMIT).getValue());
+        limitUpper = Integer.parseInt(
+                interval.getChild(TestXMLConf.NODE_UPPER_LIMIT).getValue());
 
-        value = Integer.parseInt(node.getChild(TestXMLConf.NODE_VALUE)
-                .getText());
+        value = Integer
+                .parseInt(node.getChild(TestXMLConf.NODE_VALUE).getText());
 
         data = new LinkedList<Object>();
         data.add(limitLower);
         data.add(limitUpper);
         data.add(value);
 
-        getLogger().debug(
-                String.format("Read value %d in interval [%d,%d]", value,
-                        limitLower, limitUpper));
+        getLogger().debug(String.format("Read value %d in interval [%d,%d]",
+                value, limitLower, limitUpper));
 
         return data;
     }

@@ -102,12 +102,12 @@ public final class IntervalTestRawParametersFactory {
                     parserFile = new FilteredEntriesXMLFileParser("data");
                     parserParams = new IntervalPairDocumentParser();
 
-                    parserFile
-                            .addRequiredAttribute(TestXMLConf.ATTRIBUTE_CONSECUTIVE);
+                    parserFile.addRequiredAttribute(
+                            TestXMLConf.ATTRIBUTE_CONSECUTIVE);
 
                     valuesConsecutive = parserParams
-                            .parse(parserFile
-                                    .parse(getClassPathReader(IntervalParametersConf.CONTRAST_INTERVAL)));
+                            .parse(parserFile.parse(getClassPathReader(
+                                    IntervalParametersConf.CONTRAST_INTERVAL)));
                 }
             }
         }
@@ -126,15 +126,15 @@ public final class IntervalTestRawParametersFactory {
                     parserFile = new FilteredEntriesXMLFileParser("data");
                     parserParams = new IntervalPairDocumentParser();
 
-                    parserFile
-                            .addRequiredAttribute(TestXMLConf.ATTRIBUTE_CONTAINED);
+                    parserFile.addRequiredAttribute(
+                            TestXMLConf.ATTRIBUTE_CONTAINED);
 
-                    parserFile
-                            .addRejectedAttribute(TestXMLConf.ATTRIBUTE_INVALID_B);
+                    parserFile.addRejectedAttribute(
+                            TestXMLConf.ATTRIBUTE_INVALID_B);
 
                     valuesContained = parserParams
-                            .parse(parserFile
-                                    .parse(getClassPathReader(IntervalParametersConf.CONTRAST_INTERVAL)));
+                            .parse(parserFile.parse(getClassPathReader(
+                                    IntervalParametersConf.CONTRAST_INTERVAL)));
                 }
             }
         }
@@ -153,15 +153,15 @@ public final class IntervalTestRawParametersFactory {
                     parserFile = new FilteredEntriesXMLFileParser("data");
                     parserParams = new IntervalPairDocumentParser();
 
-                    parserFile
-                            .addRequiredAttribute(TestXMLConf.ATTRIBUTE_CONTAINING);
+                    parserFile.addRequiredAttribute(
+                            TestXMLConf.ATTRIBUTE_CONTAINING);
 
-                    parserFile
-                            .addRejectedAttribute(TestXMLConf.ATTRIBUTE_INVALID_B);
+                    parserFile.addRejectedAttribute(
+                            TestXMLConf.ATTRIBUTE_INVALID_B);
 
                     valuesContaining = parserParams
-                            .parse(parserFile
-                                    .parse(getClassPathReader(IntervalParametersConf.CONTRAST_INTERVAL)));
+                            .parse(parserFile.parse(getClassPathReader(
+                                    IntervalParametersConf.CONTRAST_INTERVAL)));
                 }
             }
         }
@@ -180,12 +180,12 @@ public final class IntervalTestRawParametersFactory {
                     parserFile = new FilteredEntriesXMLFileParser("data");
                     parserParams = new IntervalContainingValueDocumentParser();
 
-                    parserFile
-                            .addRequiredAttribute(TestXMLConf.ATTRIBUTE_CONTAINED);
+                    parserFile.addRequiredAttribute(
+                            TestXMLConf.ATTRIBUTE_CONTAINED);
 
                     valuesContainingValueContained = parserParams
-                            .parse(parserFile
-                                    .parse(getClassPathReader(IntervalParametersConf.CONTAINING_VALUE)));
+                            .parse(parserFile.parse(getClassPathReader(
+                                    IntervalParametersConf.CONTAINING_VALUE)));
                 }
             }
         }
@@ -205,12 +205,12 @@ public final class IntervalTestRawParametersFactory {
                     parserFile = new FilteredEntriesXMLFileParser("data");
                     parserParams = new IntervalPairDocumentParser();
 
-                    parserFile
-                            .addRequiredAttribute(TestXMLConf.ATTRIBUTE_INVALID);
+                    parserFile.addRequiredAttribute(
+                            TestXMLConf.ATTRIBUTE_INVALID);
 
                     valuesInvalid = parserParams
-                            .parse(parserFile
-                                    .parse(getClassPathReader(IntervalParametersConf.CONTRAST_INTERVAL)));
+                            .parse(parserFile.parse(getClassPathReader(
+                                    IntervalParametersConf.CONTRAST_INTERVAL)));
                 }
             }
         }
@@ -230,8 +230,8 @@ public final class IntervalTestRawParametersFactory {
                     parserParams = new IntervalDifferenceDocumentParser();
 
                     valuesLowerDifference = parserParams
-                            .parse(parserFile
-                                    .parse(getClassPathReader(IntervalParametersConf.LOWER_DIFFERENCE)));
+                            .parse(parserFile.parse(getClassPathReader(
+                                    IntervalParametersConf.LOWER_DIFFERENCE)));
                 }
             }
         }
@@ -250,14 +250,14 @@ public final class IntervalTestRawParametersFactory {
                     parserFile = new FilteredEntriesXMLFileParser("data");
                     parserParams = new IntervalPairDocumentParser();
 
-                    parserFile
-                            .addRejectedAttribute(TestXMLConf.ATTRIBUTE_CONSECUTIVE);
-                    parserFile
-                            .addRejectedAttribute(TestXMLConf.ATTRIBUTE_INVALID_B);
+                    parserFile.addRejectedAttribute(
+                            TestXMLConf.ATTRIBUTE_CONSECUTIVE);
+                    parserFile.addRejectedAttribute(
+                            TestXMLConf.ATTRIBUTE_INVALID_B);
 
                     valuesNotConsecutive = parserParams
-                            .parse(parserFile
-                                    .parse(getClassPathReader(IntervalParametersConf.CONTRAST_INTERVAL)));
+                            .parse(parserFile.parse(getClassPathReader(
+                                    IntervalParametersConf.CONTRAST_INTERVAL)));
                 }
             }
         }
@@ -276,14 +276,14 @@ public final class IntervalTestRawParametersFactory {
                     parserFile = new FilteredEntriesXMLFileParser("data");
                     parserParams = new IntervalPairDocumentParser();
 
-                    parserFile
-                            .addRejectedAttribute(TestXMLConf.ATTRIBUTE_CONTAINED);
-                    parserFile
-                            .addRejectedAttribute(TestXMLConf.ATTRIBUTE_INVALID_B);
+                    parserFile.addRejectedAttribute(
+                            TestXMLConf.ATTRIBUTE_CONTAINED);
+                    parserFile.addRejectedAttribute(
+                            TestXMLConf.ATTRIBUTE_INVALID_B);
 
                     valuesNotContained = parserParams
-                            .parse(parserFile
-                                    .parse(getClassPathReader(IntervalParametersConf.CONTRAST_INTERVAL)));
+                            .parse(parserFile.parse(getClassPathReader(
+                                    IntervalParametersConf.CONTRAST_INTERVAL)));
                 }
             }
         }
@@ -302,14 +302,14 @@ public final class IntervalTestRawParametersFactory {
                     parserFile = new FilteredEntriesXMLFileParser("data");
                     parserParams = new IntervalPairDocumentParser();
 
-                    parserFile
-                            .addRejectedAttribute(TestXMLConf.ATTRIBUTE_CONTAINING);
-                    parserFile
-                            .addRejectedAttribute(TestXMLConf.ATTRIBUTE_INVALID_B);
+                    parserFile.addRejectedAttribute(
+                            TestXMLConf.ATTRIBUTE_CONTAINING);
+                    parserFile.addRejectedAttribute(
+                            TestXMLConf.ATTRIBUTE_INVALID_B);
 
                     valuesNotContaining = parserParams
-                            .parse(parserFile
-                                    .parse(getClassPathReader(IntervalParametersConf.CONTRAST_INTERVAL)));
+                            .parse(parserFile.parse(getClassPathReader(
+                                    IntervalParametersConf.CONTRAST_INTERVAL)));
                 }
             }
         }
@@ -328,12 +328,12 @@ public final class IntervalTestRawParametersFactory {
                     parserFile = new FilteredEntriesXMLFileParser("data");
                     parserParams = new IntervalContainingValueDocumentParser();
 
-                    parserFile
-                            .addRejectedAttribute(TestXMLConf.ATTRIBUTE_CONTAINED);
+                    parserFile.addRejectedAttribute(
+                            TestXMLConf.ATTRIBUTE_CONTAINED);
 
                     valuesContainingValueNotContained = parserParams
-                            .parse(parserFile
-                                    .parse(getClassPathReader(IntervalParametersConf.CONTAINING_VALUE)));
+                            .parse(parserFile.parse(getClassPathReader(
+                                    IntervalParametersConf.CONTAINING_VALUE)));
                 }
             }
         }
@@ -353,14 +353,14 @@ public final class IntervalTestRawParametersFactory {
                     parserFile = new FilteredEntriesXMLFileParser("data");
                     parserParams = new IntervalPairDocumentParser();
 
-                    parserFile
-                            .addRejectedAttribute(TestXMLConf.ATTRIBUTE_PREVIOUS);
-                    parserFile
-                            .addRejectedAttribute(TestXMLConf.ATTRIBUTE_INVALID_B);
+                    parserFile.addRejectedAttribute(
+                            TestXMLConf.ATTRIBUTE_PREVIOUS);
+                    parserFile.addRejectedAttribute(
+                            TestXMLConf.ATTRIBUTE_INVALID_B);
 
                     valuesNotPrevious = parserParams
-                            .parse(parserFile
-                                    .parse(getClassPathReader(IntervalParametersConf.CONTRAST_INTERVAL)));
+                            .parse(parserFile.parse(getClassPathReader(
+                                    IntervalParametersConf.CONTRAST_INTERVAL)));
                 }
             }
         }
@@ -379,12 +379,12 @@ public final class IntervalTestRawParametersFactory {
                     parserFile = new FilteredEntriesXMLFileParser("data");
                     parserParams = new IntervalPairDocumentParser();
 
-                    parserFile
-                            .addRequiredAttribute(TestXMLConf.ATTRIBUTE_PREVIOUS);
+                    parserFile.addRequiredAttribute(
+                            TestXMLConf.ATTRIBUTE_PREVIOUS);
 
                     valuesPrevious = parserParams
-                            .parse(parserFile
-                                    .parse(getClassPathReader(IntervalParametersConf.CONTRAST_INTERVAL)));
+                            .parse(parserFile.parse(getClassPathReader(
+                                    IntervalParametersConf.CONTRAST_INTERVAL)));
                 }
             }
         }
@@ -404,8 +404,8 @@ public final class IntervalTestRawParametersFactory {
                     parserParams = new IntervalDifferenceDocumentParser();
 
                     valuesUpperDifference = parserParams
-                            .parse(parserFile
-                                    .parse(getClassPathReader(IntervalParametersConf.UPPER_DIFFERENCE)));
+                            .parse(parserFile.parse(getClassPathReader(
+                                    IntervalParametersConf.UPPER_DIFFERENCE)));
                 }
             }
         }
@@ -424,12 +424,12 @@ public final class IntervalTestRawParametersFactory {
                     parserFile = new FilteredEntriesXMLFileParser("data");
                     parserParams = new IntervalPairDocumentParser();
 
-                    parserFile
-                            .addRejectedAttribute(TestXMLConf.ATTRIBUTE_INVALID);
+                    parserFile.addRejectedAttribute(
+                            TestXMLConf.ATTRIBUTE_INVALID);
 
                     valuesValid = parserParams
-                            .parse(parserFile
-                                    .parse(getClassPathReader(IntervalParametersConf.CONTRAST_INTERVAL)));
+                            .parse(parserFile.parse(getClassPathReader(
+                                    IntervalParametersConf.CONTRAST_INTERVAL)));
                 }
             }
         }
@@ -478,8 +478,8 @@ public final class IntervalTestRawParametersFactory {
      * @return an {@code InputStream} pointing to the path
      */
     private final Reader getClassPathReader(final String path) {
-        return new BufferedReader(new InputStreamReader(
-                getClassPathInputStream(path)));
+        return new BufferedReader(
+                new InputStreamReader(getClassPathInputStream(path)));
     }
 
     /**

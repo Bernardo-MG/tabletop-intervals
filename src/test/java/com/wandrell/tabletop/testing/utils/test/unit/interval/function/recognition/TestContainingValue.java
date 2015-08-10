@@ -80,8 +80,8 @@ public final class TestContainingValue {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(value);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(value);
 
-        Assert.assertTrue(IntervalArithmeticsUtils.isContaining(intervalA,
-                intervalB));
+        Assert.assertTrue(
+                IntervalArithmeticsUtils.isContaining(intervalA, intervalB));
     }
 
     @Test(dataProvider = INTERVAL_NOT_CONTAINED)
@@ -99,8 +99,8 @@ public final class TestContainingValue {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(value);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(value);
 
-        Assert.assertTrue(!IntervalArithmeticsUtils.isContaining(intervalA,
-                intervalB));
+        Assert.assertTrue(
+                !IntervalArithmeticsUtils.isContaining(intervalA, intervalB));
     }
 
     @Test(dataProvider = VALUE_CONTAINED)
@@ -113,7 +113,8 @@ public final class TestContainingValue {
         Mockito.when(intervalA.getLowerLimit()).thenReturn(lowerA);
         Mockito.when(intervalA.getUpperLimit()).thenReturn(upperA);
 
-        Assert.assertTrue(IntervalArithmeticsUtils.isContaining(intervalA, value));
+        Assert.assertTrue(
+                IntervalArithmeticsUtils.isContaining(intervalA, value));
     }
 
     @Test(dataProvider = VALUE_NOT_CONTAINED)
@@ -126,8 +127,8 @@ public final class TestContainingValue {
         Mockito.when(intervalA.getLowerLimit()).thenReturn(lowerA);
         Mockito.when(intervalA.getUpperLimit()).thenReturn(upperA);
 
-        Assert.assertTrue(!IntervalArithmeticsUtils
-                .isContaining(intervalA, value));
+        Assert.assertTrue(
+                !IntervalArithmeticsUtils.isContaining(intervalA, value));
     }
 
 }

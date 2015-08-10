@@ -54,14 +54,14 @@ public final class TestIntervalCopy {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerA);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(upperA);
 
-        Assert.assertTrue(!IntervalArithmeticsUtils.isRightAfter(intervalA,
-                intervalB));
+        Assert.assertTrue(
+                !IntervalArithmeticsUtils.isRightAfter(intervalA, intervalB));
     }
 
     @Test(dataProvider = DATA)
     public final <V extends Number> void
-            testIsConsecutiveTo_NotConsecutiveTo_Symmetric(
-                    final Integer lowerA, final Integer upperA) {
+            testIsConsecutiveTo_NotConsecutiveTo_Symmetric(final Integer lowerA,
+                    final Integer upperA) {
         final Interval intervalA;
         final Interval intervalB;
 
@@ -74,8 +74,8 @@ public final class TestIntervalCopy {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerA);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(upperA);
 
-        Assert.assertTrue(!IntervalArithmeticsUtils.isRightAfter(intervalB,
-                intervalA));
+        Assert.assertTrue(
+                !IntervalArithmeticsUtils.isRightAfter(intervalB, intervalA));
     }
 
     @Test(dataProvider = DATA)
@@ -93,8 +93,8 @@ public final class TestIntervalCopy {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerA);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(upperA);
 
-        Assert.assertTrue(IntervalArithmeticsUtils.isContaining(intervalA,
-                intervalB));
+        Assert.assertTrue(
+                IntervalArithmeticsUtils.isContaining(intervalA, intervalB));
     }
 
     @Test(dataProvider = DATA)
@@ -112,13 +112,13 @@ public final class TestIntervalCopy {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerA);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(upperA);
 
-        Assert.assertTrue(IntervalArithmeticsUtils.isContaining(intervalB,
-                intervalA));
+        Assert.assertTrue(
+                IntervalArithmeticsUtils.isContaining(intervalB, intervalA));
     }
 
     @Test(dataProvider = DATA)
-    public final <V extends Number> void testIsNextTo_NotNextTo(
-            final Integer lowerA, final Integer upperA) {
+    public final <V extends Number> void
+            testIsNextTo_NotNextTo(final Integer lowerA, final Integer upperA) {
         final Interval intervalA;
         final Interval intervalB;
 
@@ -131,8 +131,8 @@ public final class TestIntervalCopy {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerA);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(upperA);
 
-        Assert.assertTrue(!IntervalArithmeticsUtils
-                .isNextTo(intervalA, intervalB));
+        Assert.assertTrue(
+                !IntervalArithmeticsUtils.isNextTo(intervalA, intervalB));
     }
 
     @Test(dataProvider = DATA)
@@ -150,8 +150,8 @@ public final class TestIntervalCopy {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerA);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(upperA);
 
-        Assert.assertTrue(!IntervalArithmeticsUtils
-                .isNextTo(intervalB, intervalA));
+        Assert.assertTrue(
+                !IntervalArithmeticsUtils.isNextTo(intervalB, intervalA));
     }
 
     @Test(dataProvider = DATA)
@@ -169,8 +169,8 @@ public final class TestIntervalCopy {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerA);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(upperA);
 
-        Assert.assertTrue(IntervalArithmeticsUtils.isOverlapped(intervalA,
-                intervalB));
+        Assert.assertTrue(
+                IntervalArithmeticsUtils.isOverlapped(intervalA, intervalB));
     }
 
     @Test(dataProvider = DATA)
@@ -188,8 +188,8 @@ public final class TestIntervalCopy {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerA);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(upperA);
 
-        Assert.assertTrue(IntervalArithmeticsUtils.isOverlapped(intervalB,
-                intervalA));
+        Assert.assertTrue(
+                IntervalArithmeticsUtils.isOverlapped(intervalB, intervalA));
     }
 
     @Test(dataProvider = DATA)
@@ -207,8 +207,8 @@ public final class TestIntervalCopy {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerA);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(upperA);
 
-        Assert.assertTrue(!IntervalArithmeticsUtils.isRightBefore(intervalA,
-                intervalB));
+        Assert.assertTrue(
+                !IntervalArithmeticsUtils.isRightBefore(intervalA, intervalB));
     }
 
     @Test(dataProvider = DATA)
@@ -227,8 +227,8 @@ public final class TestIntervalCopy {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerA);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(upperA);
 
-        Assert.assertTrue(!IntervalArithmeticsUtils.isRightBefore(intervalB,
-                intervalA));
+        Assert.assertTrue(
+                !IntervalArithmeticsUtils.isRightBefore(intervalB, intervalA));
     }
 
 }

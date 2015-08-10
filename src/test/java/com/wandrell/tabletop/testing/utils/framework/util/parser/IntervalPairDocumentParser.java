@@ -27,11 +27,11 @@ import org.slf4j.LoggerFactory;
 import com.wandrell.pattern.parser.Parser;
 import com.wandrell.tabletop.testing.utils.framework.conf.TestXMLConf;
 
-public final class IntervalPairDocumentParser implements
-        Parser<Document, Collection<Collection<Object>>> {
+public final class IntervalPairDocumentParser
+        implements Parser<Document, Collection<Collection<Object>>> {
 
     private static final Logger logger = LoggerFactory
-                                               .getLogger(IntervalPairDocumentParser.class);
+            .getLogger(IntervalPairDocumentParser.class);
 
     private static final Logger getLogger() {
         return logger;
@@ -65,15 +65,15 @@ public final class IntervalPairDocumentParser implements
         intervalA = node.getChild(TestXMLConf.NODE_INTERVAL_A);
         intervalB = node.getChild(TestXMLConf.NODE_INTERVAL_B);
 
-        limitLowerA = Integer.parseInt(intervalA.getChild(
-                TestXMLConf.NODE_LOWER_LIMIT).getValue());
-        limitUpperA = Integer.parseInt(intervalA.getChild(
-                TestXMLConf.NODE_UPPER_LIMIT).getValue());
+        limitLowerA = Integer.parseInt(
+                intervalA.getChild(TestXMLConf.NODE_LOWER_LIMIT).getValue());
+        limitUpperA = Integer.parseInt(
+                intervalA.getChild(TestXMLConf.NODE_UPPER_LIMIT).getValue());
 
-        limitLowerB = Integer.parseInt(intervalB.getChild(
-                TestXMLConf.NODE_LOWER_LIMIT).getValue());
-        limitUpperB = Integer.parseInt(intervalB.getChild(
-                TestXMLConf.NODE_UPPER_LIMIT).getValue());
+        limitLowerB = Integer.parseInt(
+                intervalB.getChild(TestXMLConf.NODE_LOWER_LIMIT).getValue());
+        limitUpperB = Integer.parseInt(
+                intervalB.getChild(TestXMLConf.NODE_UPPER_LIMIT).getValue());
 
         data = new LinkedList<Object>();
         data.add(limitLowerA);
@@ -82,9 +82,8 @@ public final class IntervalPairDocumentParser implements
         data.add(limitLowerB);
         data.add(limitUpperB);
 
-        getLogger().debug(
-                String.format("Read intervals [%d,%d] and [%d,%d]",
-                        limitLowerA, limitUpperA, limitLowerB, limitUpperB));
+        getLogger().debug(String.format("Read intervals [%d,%d] and [%d,%d]",
+                limitLowerA, limitUpperA, limitLowerB, limitUpperB));
 
         return data;
     }

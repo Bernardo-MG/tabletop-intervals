@@ -27,11 +27,11 @@ import org.slf4j.LoggerFactory;
 import com.wandrell.pattern.parser.Parser;
 import com.wandrell.tabletop.testing.utils.framework.conf.TestXMLConf;
 
-public final class DiceDocumentParser implements
-        Parser<Document, Collection<Collection<Object>>> {
+public final class DiceDocumentParser
+        implements Parser<Document, Collection<Collection<Object>>> {
 
     private static final Logger logger = LoggerFactory
-                                               .getLogger(DiceDocumentParser.class);
+            .getLogger(DiceDocumentParser.class);
 
     private static final Logger getLogger() {
         return logger;
@@ -61,25 +61,23 @@ public final class DiceDocumentParser implements
 
         data = new LinkedList<Object>();
 
-        quantity = Integer.parseInt(node.getChild(TestXMLConf.NODE_QUANTITY)
-                .getText());
-        sides = Integer.parseInt(node.getChild(TestXMLConf.NODE_SIDES)
-                .getText());
-        modifier = Integer.parseInt(node.getChild(TestXMLConf.NODE_MODIFIER)
-                .getText());
+        quantity = Integer
+                .parseInt(node.getChild(TestXMLConf.NODE_QUANTITY).getText());
+        sides = Integer
+                .parseInt(node.getChild(TestXMLConf.NODE_SIDES).getText());
+        modifier = Integer
+                .parseInt(node.getChild(TestXMLConf.NODE_MODIFIER).getText());
 
         data.add(quantity);
         data.add(sides);
         data.add(modifier);
 
         if (modifier > 0) {
-            getLogger().debug(
-                    String.format("Read dice %dd%d+%d", quantity, sides,
-                            modifier));
+            getLogger().debug(String.format("Read dice %dd%d+%d", quantity,
+                    sides, modifier));
         } else {
-            getLogger().debug(
-                    String.format("Read dice %dd%d-%d", quantity, sides,
-                            modifier));
+            getLogger().debug(String.format("Read dice %dd%d-%d", quantity,
+                    sides, modifier));
         }
 
         return data;
