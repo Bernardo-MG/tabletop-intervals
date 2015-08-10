@@ -8,7 +8,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.wandrell.tabletop.interval.Interval;
-import com.wandrell.tabletop.interval.util.IntervalOperationUtils;
+import com.wandrell.tabletop.interval.util.IntervalArithmeticsUtils;
 import com.wandrell.tabletop.testing.utils.framework.conf.factory.parameter.IntervalValuesTestParametersFactory;
 
 public final class TestContainingValue {
@@ -65,7 +65,7 @@ public final class TestContainingValue {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(value);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(value);
 
-        Assert.assertTrue(IntervalOperationUtils.isContaining(intervalA,
+        Assert.assertTrue(IntervalArithmeticsUtils.isContaining(intervalA,
                 intervalB));
     }
 
@@ -84,7 +84,7 @@ public final class TestContainingValue {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(value);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(value);
 
-        Assert.assertTrue(!IntervalOperationUtils.isContaining(intervalA,
+        Assert.assertTrue(!IntervalArithmeticsUtils.isContaining(intervalA,
                 intervalB));
     }
 
@@ -98,7 +98,7 @@ public final class TestContainingValue {
         Mockito.when(intervalA.getLowerLimit()).thenReturn(lowerA);
         Mockito.when(intervalA.getUpperLimit()).thenReturn(upperA);
 
-        Assert.assertTrue(IntervalOperationUtils.isContaining(intervalA, value));
+        Assert.assertTrue(IntervalArithmeticsUtils.isContaining(intervalA, value));
     }
 
     @Test(dataProvider = VALUE_NOT_CONTAINED)
@@ -111,7 +111,7 @@ public final class TestContainingValue {
         Mockito.when(intervalA.getLowerLimit()).thenReturn(lowerA);
         Mockito.when(intervalA.getUpperLimit()).thenReturn(upperA);
 
-        Assert.assertTrue(!IntervalOperationUtils
+        Assert.assertTrue(!IntervalArithmeticsUtils
                 .isContaining(intervalA, value));
     }
 

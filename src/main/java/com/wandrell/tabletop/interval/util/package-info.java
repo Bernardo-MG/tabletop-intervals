@@ -14,7 +14,13 @@
  * the License.
  */
 /**
- * Comparators for intervals.
+ * Various utilities classes for intervals.
+ * <p>
+ * Mostly it contains a comparator,
+ * {@link com.wandrell.tabletop.interval.util.IntervalComparator
+ * IntervalComparator}, meant to be used with implementations of
+ * {@link com.wandrell.tabletop.interval.Interval Interval}, and a class,
+ * {@link com.wandrell.tabletop.interval.util.IntervalArithmeticsUtils
+ * IntervalArithmeticsUtils}, for interval arithmetics with that same interface.
  */
 package com.wandrell.tabletop.interval.util;
-

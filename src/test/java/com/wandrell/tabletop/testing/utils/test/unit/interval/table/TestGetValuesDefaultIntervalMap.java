@@ -8,9 +8,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.wandrell.tabletop.interval.DefaultInterval;
-import com.wandrell.tabletop.interval.DefaultIntervalTable;
 import com.wandrell.tabletop.interval.Interval;
-import com.wandrell.tabletop.interval.IntervalTable;
+import com.wandrell.tabletop.interval.table.DefaultIntervalTable;
+import com.wandrell.tabletop.interval.table.IntervalTable;
 
 public final class TestGetValuesDefaultIntervalMap {
 

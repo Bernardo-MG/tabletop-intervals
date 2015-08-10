@@ -23,10 +23,11 @@ import java.util.Comparator;
 import com.wandrell.tabletop.interval.Interval;
 
 /**
- * Comparator for sorting <code>Integer</code> <code>Interval</code> objects.
+ * Comparator for sorting {@link Interval} instances.
+ * <p>
+ * They will be compared based on the lower limit.
  * 
  * @author Bernardo Martínez Garrido
- * @version 0.1.0
  */
 public final class IntervalComparator implements Comparator<Interval>,
         Serializable {
@@ -37,7 +38,7 @@ public final class IntervalComparator implements Comparator<Interval>,
     private static final long serialVersionUID = 2242823598874420432L;
 
     /**
-     * Constructs the comparator.
+     * Constructs the {@code IntervalComparator}.
      */
     public IntervalComparator() {
         super();

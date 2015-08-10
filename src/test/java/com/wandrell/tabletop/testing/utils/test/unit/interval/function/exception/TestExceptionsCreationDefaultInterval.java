@@ -7,7 +7,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.wandrell.tabletop.interval.Interval;
-import com.wandrell.tabletop.interval.util.IntervalOperationUtils;
+import com.wandrell.tabletop.interval.util.IntervalArithmeticsUtils;
 import com.wandrell.tabletop.testing.utils.framework.conf.factory.parameter.IntervalValuesTestParametersFactory;
 
 public final class TestExceptionsCreationDefaultInterval {
@@ -34,7 +34,7 @@ public final class TestExceptionsCreationDefaultInterval {
         Mockito.when(interval.getLowerLimit()).thenReturn(lower);
         Mockito.when(interval.getUpperLimit()).thenReturn(upper);
 
-        IntervalOperationUtils.isContaining(interval, 0);
+        IntervalArithmeticsUtils.isContaining(interval, 0);
     }
 
     @Test(expectedExceptions = IllegalArgumentException.class,
@@ -53,7 +53,7 @@ public final class TestExceptionsCreationDefaultInterval {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(Integer.MIN_VALUE);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(Integer.MAX_VALUE);
 
-        IntervalOperationUtils.isContaining(intervalA, intervalB);
+        IntervalArithmeticsUtils.isContaining(intervalA, intervalB);
     }
 
     @Test(expectedExceptions = IllegalArgumentException.class,
@@ -72,7 +72,7 @@ public final class TestExceptionsCreationDefaultInterval {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(lower);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(upper);
 
-        IntervalOperationUtils.isContaining(intervalA, intervalB);
+        IntervalArithmeticsUtils.isContaining(intervalA, intervalB);
     }
 
     @Test(expectedExceptions = IllegalArgumentException.class,
@@ -91,7 +91,7 @@ public final class TestExceptionsCreationDefaultInterval {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(Integer.MIN_VALUE);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(Integer.MAX_VALUE);
 
-        IntervalOperationUtils.isNextTo(intervalA, intervalB);
+        IntervalArithmeticsUtils.isNextTo(intervalA, intervalB);
     }
 
     @Test(expectedExceptions = IllegalArgumentException.class,
@@ -110,7 +110,7 @@ public final class TestExceptionsCreationDefaultInterval {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(lower);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(upper);
 
-        IntervalOperationUtils.isNextTo(intervalA, intervalB);
+        IntervalArithmeticsUtils.isNextTo(intervalA, intervalB);
     }
 
     @Test(expectedExceptions = IllegalArgumentException.class,
@@ -129,7 +129,7 @@ public final class TestExceptionsCreationDefaultInterval {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(Integer.MIN_VALUE);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(Integer.MAX_VALUE);
 
-        IntervalOperationUtils.isOverlapped(intervalA, intervalB);
+        IntervalArithmeticsUtils.isOverlapped(intervalA, intervalB);
     }
 
     @Test(expectedExceptions = IllegalArgumentException.class,
@@ -148,7 +148,7 @@ public final class TestExceptionsCreationDefaultInterval {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(lower);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(upper);
 
-        IntervalOperationUtils.isOverlapped(intervalA, intervalB);
+        IntervalArithmeticsUtils.isOverlapped(intervalA, intervalB);
     }
 
     @Test(expectedExceptions = IllegalArgumentException.class,
@@ -167,7 +167,7 @@ public final class TestExceptionsCreationDefaultInterval {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(Integer.MIN_VALUE);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(Integer.MAX_VALUE);
 
-        IntervalOperationUtils.isRightAfter(intervalA, intervalB);
+        IntervalArithmeticsUtils.isRightAfter(intervalA, intervalB);
     }
 
     @Test(expectedExceptions = IllegalArgumentException.class,
@@ -186,7 +186,7 @@ public final class TestExceptionsCreationDefaultInterval {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(lower);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(upper);
 
-        IntervalOperationUtils.isRightAfter(intervalA, intervalB);
+        IntervalArithmeticsUtils.isRightAfter(intervalA, intervalB);
     }
 
     @Test(expectedExceptions = IllegalArgumentException.class,
@@ -205,7 +205,7 @@ public final class TestExceptionsCreationDefaultInterval {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(Integer.MIN_VALUE);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(Integer.MAX_VALUE);
 
-        IntervalOperationUtils.isRightBefore(intervalA, intervalB);
+        IntervalArithmeticsUtils.isRightBefore(intervalA, intervalB);
     }
 
     @Test(expectedExceptions = IllegalArgumentException.class,
@@ -224,7 +224,7 @@ public final class TestExceptionsCreationDefaultInterval {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(lower);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(upper);
 
-        IntervalOperationUtils.isRightBefore(intervalA, intervalB);
+        IntervalArithmeticsUtils.isRightBefore(intervalA, intervalB);
     }
 
     @Test(expectedExceptions = IllegalArgumentException.class,
@@ -243,7 +243,7 @@ public final class TestExceptionsCreationDefaultInterval {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(Integer.MIN_VALUE);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(Integer.MAX_VALUE);
 
-        IntervalOperationUtils.getLowerDifference(intervalA, intervalB);
+        IntervalArithmeticsUtils.getLowerDifference(intervalA, intervalB);
     }
 
     @Test(expectedExceptions = IllegalArgumentException.class,
@@ -262,7 +262,7 @@ public final class TestExceptionsCreationDefaultInterval {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(lower);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(upper);
 
-        IntervalOperationUtils.getLowerDifference(intervalA, intervalB);
+        IntervalArithmeticsUtils.getLowerDifference(intervalA, intervalB);
     }
 
     @Test(expectedExceptions = IllegalArgumentException.class,
@@ -281,7 +281,7 @@ public final class TestExceptionsCreationDefaultInterval {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(Integer.MIN_VALUE);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(Integer.MAX_VALUE);
 
-        IntervalOperationUtils.getUpperDifference(intervalA, intervalB);
+        IntervalArithmeticsUtils.getUpperDifference(intervalA, intervalB);
     }
 
     @Test(expectedExceptions = IllegalArgumentException.class,
@@ -300,7 +300,7 @@ public final class TestExceptionsCreationDefaultInterval {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(lower);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(upper);
 
-        IntervalOperationUtils.getUpperDifference(intervalA, intervalB);
+        IntervalArithmeticsUtils.getUpperDifference(intervalA, intervalB);
     }
 
 }

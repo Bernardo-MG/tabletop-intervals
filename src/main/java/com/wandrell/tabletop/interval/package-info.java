@@ -14,11 +14,25 @@
  * the License.
  */
 /**
- * Provides an API for intervals.
+ * Provides an API and default implementations for the interval structures used
+ * on tabletop games.
+ * <h2>Interval</h2>
  * <p>
- * The interface {@link Interval} offers a way to handle integer intervals,
- * while {@link IntervalTable} represents the tables of intervals common in
- * tabletop games.
+ * The basic interval is represented by the interface
+ * {@link com.wandrell.tabletop.interval.Interval Interval}, and it's default
+ * implementation {@link com.wandrell.tabletop.interval.DefaultInterval
+ * DefaultInterval}.
+ * <h2>Interval Table</h2>
+ * <p>
+ * A more complex type of interval is the interval table. This is basically an
+ * interval divided into several smaller intervals, each of them with a value
+ * assigned to it.
+ * <p>
+ * This is represented by the
+ * {@link com.wandrell.tabletop.interval.table.IntervalTable IntervalTable}
+ * interface, and it's default implementation
+ * {@link com.wandrell.tabletop.interval.table.DefaultIntervalTable
+ * DefaultIntervalTable}, which are kept in the
+ * {@link com.wandrell.tabletop.interval.table table} package.
  */
 package com.wandrell.tabletop.interval;
-

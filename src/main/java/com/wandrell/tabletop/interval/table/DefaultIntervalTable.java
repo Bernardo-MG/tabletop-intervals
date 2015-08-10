@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.wandrell.tabletop.interval;
+package com.wandrell.tabletop.interval.table;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -25,24 +25,24 @@ import java.util.Objects;
 import java.util.TreeMap;
 
 import com.google.common.base.MoreObjects;
+import com.wandrell.tabletop.interval.Interval;
 import com.wandrell.tabletop.interval.util.IntervalComparator;
-import com.wandrell.tabletop.interval.util.IntervalOperationUtils;
+import com.wandrell.tabletop.interval.util.IntervalArithmeticsUtils;
 
 /**
  * Default implementation of {@code IntervalTable}.
  * 
  * @author Bernardo Martínez Garrido
- * @version 0.1.0
  * @param <V>
- *            the type to be stored
+ *            the type of the values assigned to the intervals
  */
 public final class DefaultIntervalTable<V> implements IntervalTable<V> {
 
     /**
-     * The map storing the intervals and their values.
+     * The intervals composing the table and their values.
      */
     private final TreeMap<Interval, V> tableIntervals = new TreeMap<Interval, V>(
-                                                              new IntervalComparator());
+            new IntervalComparator());
 
     /**
      * Copy constructor for {@code DefaultIntervalTable}.
@@ -65,7 +65,7 @@ public final class DefaultIntervalTable<V> implements IntervalTable<V> {
     }
 
     /**
-     * Constructs a roll table with the specified parameters.
+     * Constructs a {@code DefaultIntervalTable} with the specified parameters.
      * 
      * @param intervals
      *            the intervals and their assigned value
@@ -124,12 +124,12 @@ public final class DefaultIntervalTable<V> implements IntervalTable<V> {
 
         if (!isContainedInInterval(number)) {
             if (getIntervalsModifiable().isEmpty()) {
-                throw new IndexOutOfBoundsException(String.format(
-                        "%d is out of the empty interval", number));
+                throw new IndexOutOfBoundsException(String
+                        .format("%d is out of the empty interval", number));
             } else {
-                throw new IndexOutOfBoundsException(String.format(
-                        "%d is out of the interval [%d,%d]", number,
-                        getLowerLimit(), getUpperLimit()));
+                throw new IndexOutOfBoundsException(
+                        String.format("%d is out of the interval [%d,%d]",
+                                number, getLowerLimit(), getUpperLimit()));
             }
         }
 
@@ -141,7 +141,7 @@ public final class DefaultIntervalTable<V> implements IntervalTable<V> {
         value = null;
         while ((value == null) && (itrIntervals.hasNext())) {
             entry = itrIntervals.next();
-            if (IntervalOperationUtils.isContaining(entry.getKey(), number)) {
+            if (IntervalArithmeticsUtils.isContaining(entry.getKey(), number)) {
                 value = entry.getValue();
             }
         }
@@ -156,8 +156,8 @@ public final class DefaultIntervalTable<V> implements IntervalTable<V> {
 
     @Override
     public final String toString() {
-        return MoreObjects.toStringHelper(this)
-                .add("intervals", tableIntervals).toString();
+        return MoreObjects.toStringHelper(this).add("intervals", tableIntervals)
+                .toString();
     }
 
     /**

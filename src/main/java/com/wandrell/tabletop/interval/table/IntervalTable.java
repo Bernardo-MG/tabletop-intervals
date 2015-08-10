@@ -13,27 +13,26 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.wandrell.tabletop.interval;
+package com.wandrell.tabletop.interval.table;
 
 import java.util.Map;
 
+import com.wandrell.tabletop.interval.Interval;
+
 /**
- * Represents a table where sections of an interval are mapped to different
- * values. Meaning that the main interval is divided into a series of smaller
- * ones, each of them having some sort of value assigned.
+ * Interface for representing an intervals table. This is a table composed of
+ * consecutive intervals, each of them having a value assigned to it. Another
+ * way to see it is as an interval divided into several smaller intervals, each
+ * with a value assigned to it.
  * <p>
- * Commonly, all the intervals, both the main and the contained ones, are
- * integer intervals and, obviously, the contained intervals are contained in
- * the main one, are consecutive one to another and create the main one when
- * joined. Still, it is also possible that the contained intervals would
- * overlap, or leave gaps, but this is not common.
- * <p>
- * Apart from this there are no other constraints, allowing negative values or
- * not proper intervals to be used.
+ * All the intervals are made of integers, but apart from this there are no
+ * other constraints, allowing negative values or not proper intervals to be
+ * used.
  * <p>
  * Each of the contained intervals is mapped to a value whose type can not be
- * predicted, it can range items of any kind such as weapons or armor, to more
- * abstract concepts like deployment zones or in-game events.
+ * predicted. Some common values are score points or items such as weapons or
+ * armor, but may include more abstract concepts like deployment zones or
+ * in-game events.
  * <p>
  * For example, this is Bloodbowl's weather table:
  * <table summary="Interval table example">
@@ -63,24 +62,20 @@ import java.util.Map;
  * </tr>
  * </table>
  * <p>
- * In this case, two dice of six sides are rolled, and the result is compared to
- * the first column. Then the event on the second column is applied to the game.
- * <p>
- * This represents a common use, as interval tables are commonly used to
- * generate non-numeric random values with the use or dice.
- * </p>
+ * This table is used by rolling two dice of six sides, adding the values, and
+ * comparing the result to the first column. Then the event on the second column
+ * is applied to the game.
  * 
  * @author Bernardo Martínez Garrido
- * @version 0.1.0
  * @param <V>
- *            the type of the assigned values
+ *            the type of the values assigned to the intervals
  */
 public interface IntervalTable<V> {
 
     /**
      * Returns all the intervals and their assigned values.
      * 
-     * @return all the values and their range
+     * @return all the values and their value
      */
     public Map<Interval, V> getIntervals();
 
@@ -101,11 +96,11 @@ public interface IntervalTable<V> {
     /**
      * Gets the value assigned to the specified number.
      * <p>
-     * Searches for the interval containing the number, and then returns the
-     * value assigned to it.
+     * This will search for the interval containing the number, and then return
+     * the value assigned to it.
      * <p>
-     * If the value is not contained on the table, it is expected to indicate it
-     * through an {@code IndexOutOfBoundsException} exception.
+     * If the value is not contained on the table, it is expected to indicate
+     * this through an {@code IndexOutOfBoundsException} exception.
      * 
      * @param number
      *            the number whose value to find

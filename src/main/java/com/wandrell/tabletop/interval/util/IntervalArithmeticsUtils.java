@@ -23,15 +23,14 @@ import com.wandrell.tabletop.interval.DefaultInterval;
 import com.wandrell.tabletop.interval.Interval;
 
 /**
- * Interval operations utilities class.
+ * Utilities class for interval arithmetics.
  * 
  * @author Bernardo Martínez Garrido
- * @version 0.1.0
  */
-public final class IntervalOperationUtils {
+public final class IntervalArithmeticsUtils {
 
     /**
-     * Generates the lower difference of two intervals.
+     * Returns the lower difference of two intervals.
      * <p>
      * This will be a new interval having the lowest lower limit as it's lower
      * limit, and the highest lower limit as it's upper limit.
@@ -47,7 +46,8 @@ public final class IntervalOperationUtils {
         final Interval lowerDifference;
         Integer upper, lower;
 
-        checkNotNull(intervalA, "Received a null pointer as the first interval");
+        checkNotNull(intervalA,
+                "Received a null pointer as the first interval");
         checkNotNull(intervalB,
                 "Received a null pointer as the second interval");
 
@@ -56,9 +56,8 @@ public final class IntervalOperationUtils {
         checkArgument(isValid(intervalB),
                 "Received an invalid interval as the second argument");
 
-        if ((isOverlapped(intervalA, intervalB))
-                && (!intervalA.getLowerLimit()
-                        .equals(intervalB.getLowerLimit()))) {
+        if ((isOverlapped(intervalA, intervalB)) && (!intervalA.getLowerLimit()
+                .equals(intervalB.getLowerLimit()))) {
             upper = (Math.max(intervalA.getLowerLimit(),
                     intervalB.getLowerLimit()) - 1);
             lower = (Math.min(intervalA.getLowerLimit(),
@@ -74,7 +73,7 @@ public final class IntervalOperationUtils {
     }
 
     /**
-     * Generates the upper difference of two intervals.
+     * Returns the upper difference of two intervals.
      * <p>
      * This will be a new interval having the lowest upper limit as it's lower
      * limit, and the highest upper limit as it's upper limit.
@@ -90,7 +89,8 @@ public final class IntervalOperationUtils {
         final Interval upperDifference;
         final Integer upper, lower;
 
-        checkNotNull(intervalA, "Received a null pointer as the first interval");
+        checkNotNull(intervalA,
+                "Received a null pointer as the first interval");
         checkNotNull(intervalB,
                 "Received a null pointer as the second interval");
 
@@ -101,9 +101,8 @@ public final class IntervalOperationUtils {
 
         // *-----* = this interval
         // O-----O = received interval
-        if ((isOverlapped(intervalA, intervalB))
-                && (!intervalA.getUpperLimit()
-                        .equals(intervalB.getUpperLimit()))) {
+        if ((isOverlapped(intervalA, intervalB)) && (!intervalA.getUpperLimit()
+                .equals(intervalB.getUpperLimit()))) {
             upper = Math.max(intervalA.getUpperLimit(),
                     intervalB.getUpperLimit());
             lower = (Math.min(intervalA.getUpperLimit(),
@@ -119,7 +118,7 @@ public final class IntervalOperationUtils {
     }
 
     /**
-     * Checks if an interval contains a value.
+     * Indicates if an interval contains a value.
      * 
      * @param interval
      *            the interval for the check
@@ -145,7 +144,7 @@ public final class IntervalOperationUtils {
     }
 
     /**
-     * Checks if an interval contains another.
+     * Indicates if an interval contains another.
      * 
      * @param containing
      *            the interval which may be containing the other
@@ -178,7 +177,7 @@ public final class IntervalOperationUtils {
     }
 
     /**
-     * Checks if two intervals are consecutive one to another. It does not
+     * Indicates if two intervals are consecutive one to another. It does not
      * indicate any order.
      * <p>
      * They are consecutive if adding 1 to one interval's upper limit gives the
@@ -198,7 +197,7 @@ public final class IntervalOperationUtils {
     }
 
     /**
-     * Checks if two intervals overlap.
+     * Indicates if two intervals overlap.
      * 
      * @param intervalA
      *            first interval for the check
@@ -211,7 +210,8 @@ public final class IntervalOperationUtils {
         final Range<Integer> rangeA;
         final Range<Integer> rangeB;
 
-        checkNotNull(intervalA, "Received a null pointer as the first interval");
+        checkNotNull(intervalA,
+                "Received a null pointer as the first interval");
         checkNotNull(intervalB,
                 "Received a null pointer as the second interval");
 
@@ -229,7 +229,7 @@ public final class IntervalOperationUtils {
     }
 
     /**
-     * Checks if one interval is after another.
+     * Indicates if one interval is after another.
      * 
      * @param second
      *            the interval to check if it is after the first
@@ -257,7 +257,7 @@ public final class IntervalOperationUtils {
     }
 
     /**
-     * Checks if one interval is before another.
+     * Indicates if one interval is before another.
      * 
      * @param first
      *            the interval to check if it is the before the second
@@ -272,7 +272,7 @@ public final class IntervalOperationUtils {
     }
 
     /**
-     * Checks if the interval is valid.
+     * Indicates if the interval is valid.
      * 
      * @param interval
      *            the interval to check
@@ -283,9 +283,11 @@ public final class IntervalOperationUtils {
     }
 
     /**
-     * Default constructor.
+     * Constructs an {@code IntervalArithmeticsUtils}.
+     * <p>
+     * As this is a utilities class the constructor is private.
      */
-    private IntervalOperationUtils() {
+    private IntervalArithmeticsUtils() {
         super();
     }
 

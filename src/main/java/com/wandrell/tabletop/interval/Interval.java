@@ -16,23 +16,25 @@
 package com.wandrell.tabletop.interval;
 
 /**
- * Represent an integer interval. This means that the interval is continuous,
- * closed and discrete, containing only integers.
+ * Interface for representing integer intervals. This interval will be
+ * continuous, closed and discrete, containing only integers.
  * <p>
  * The only constraint is that the lower limit can't be higher than the upper
  * limit, and viceversa. Also, {@code null} values are expected to be rejected.
  * 
  * @author Bernardo Martínez Garrido
- * @version 0.1.0
  */
 public interface Interval {
 
     /**
      * Returns the interval as a string.
+     * <p>
+     * If the interval has the value 5 as it's lower limit, and the value 7 as
+     * it's upper limit, then the string will be "[5,7]".
      * 
      * @return the interval as a string
      */
-    public String asString();
+    public String getStringRepresentation();
 
     /**
      * Returns interval's upper limit.

@@ -19,13 +19,13 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.util.Objects;
 
+import com.google.common.base.MoreObjects;
 import com.google.common.collect.Range;
 
 /**
- * Abstract implementation of {@code Interval}.
+ * Default implementation of {@code Interval}.
  * 
  * @author Bernardo Martínez Garrido
- * @version 0.1.0
  */
 public final class DefaultInterval implements Interval {
 
@@ -35,7 +35,7 @@ public final class DefaultInterval implements Interval {
     private Range<Integer> range;
 
     /**
-     * Default constructor.
+     * Constructs a {@code DefaultInterval}.
      * <p>
      * Creates an interval where the lower limit is the minimum allowed integer,
      * and the upper is the maximum allowed integer.
@@ -45,7 +45,7 @@ public final class DefaultInterval implements Interval {
     }
 
     /**
-     * Copy constructor.
+     * Copy constructor for {@code DefaultInterval} .
      * 
      * @param interval
      *            the interval to copy
@@ -60,7 +60,7 @@ public final class DefaultInterval implements Interval {
     }
 
     /**
-     * Constructs an interval with the specified limits.
+     * Constructs a {@code DefaultInterval} with the specified limits.
      * <p>
      * The lower limit should be lower or equal to the upper, otherwise an
      * {@code IllegalIntervalLimitException} is thrown.
@@ -80,7 +80,7 @@ public final class DefaultInterval implements Interval {
     }
 
     /**
-     * Constructs a default interval from the specified interval.
+     * Constructs a {@code DefaultInterval} from the specified interval.
      * 
      * @param interval
      *            the interval from which to get the limits
@@ -90,7 +90,7 @@ public final class DefaultInterval implements Interval {
     }
 
     @Override
-    public final String asString() {
+    public final String getStringRepresentation() {
         return String.format("[%d,%d]", getLowerLimit(), getUpperLimit());
     }
 
@@ -147,8 +147,7 @@ public final class DefaultInterval implements Interval {
 
     @Override
     public final String toString() {
-        return String.format("DefaultInterval[%d,%d]", getLowerLimit(),
-                getUpperLimit());
+        return MoreObjects.toStringHelper(this).add("range", range).toString();
     }
 
     /**

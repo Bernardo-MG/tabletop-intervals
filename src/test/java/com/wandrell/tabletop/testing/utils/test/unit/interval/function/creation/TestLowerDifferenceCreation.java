@@ -8,7 +8,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.wandrell.tabletop.interval.Interval;
-import com.wandrell.tabletop.interval.util.IntervalOperationUtils;
+import com.wandrell.tabletop.interval.util.IntervalArithmeticsUtils;
 import com.wandrell.tabletop.testing.utils.framework.conf.factory.parameter.IntervalValuesTestParametersFactory;
 
 public final class TestLowerDifferenceCreation {
@@ -42,7 +42,7 @@ public final class TestLowerDifferenceCreation {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerB);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(upperB);
 
-        intervalResult = IntervalOperationUtils.getLowerDifference(intervalA,
+        intervalResult = IntervalArithmeticsUtils.getLowerDifference(intervalA,
                 intervalB);
 
         if (lowerE != null) {
@@ -70,7 +70,7 @@ public final class TestLowerDifferenceCreation {
         Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerB);
         Mockito.when(intervalB.getUpperLimit()).thenReturn(upperB);
 
-        intervalResult = IntervalOperationUtils.getLowerDifference(intervalB,
+        intervalResult = IntervalArithmeticsUtils.getLowerDifference(intervalB,
                 intervalA);
 
         if (lowerE != null) {
