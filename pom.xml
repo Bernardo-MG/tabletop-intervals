@@ -12,6 +12,7 @@
 	<name>Tabletop Intervals</name>
 	<description>Classes for representing various interval structures.</description>
 	<url>https://github.com/bernardo-mg/tabletop-intervals</url>
+	<inceptionYear>2015</inceptionYear>
 
 	<licenses>
 		<license>
