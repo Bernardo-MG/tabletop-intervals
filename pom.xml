@@ -149,8 +149,8 @@
 		<extension.wagon.version>2.8</extension.wagon.version>
 		<!-- Maven Site -->
 		<site.skin.version>0.1.0</site.skin.version>
-		<bintrayURL>https://bintray.com/bernardo-mg/maven/tabletop-intervals/view</bintrayURL>
-		<mavenURL>http://mvnrepository.com/artifact/com.wandrell.tabletop/tabletop-intervals</mavenURL>
+		<bintrayURL>https://bintray.com/bernardo-mg/maven/intervals/view</bintrayURL>
+		<mavenURL>http://mvnrepository.com/artifact/com.wandrell.tabletop/intervals</mavenURL>
 	</properties>
 
 	<dependencies>
