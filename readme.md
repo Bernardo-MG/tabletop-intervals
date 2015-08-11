@@ -3,7 +3,7 @@
 This project contains classes to represent various types of interval structures.
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.wandrell.tabletop/tabletop-intervals.svg)][maven-repo]
-[![Bintray](https://api.bintray.com/packages/bernardo-mg/maven/tabletop-intervals/images/download.svg)][bintray-repo]
+[![Bintray](https://api.bintray.com/packages/bernardo-mg/tabletop-toolkits/interval/images/download.svg)][bintray-repo]
 
 [![Release docs](https://img.shields.io/badge/docs-release-blue.svg)][site-release]
 [![Development docs](https://img.shields.io/badge/docs-develop-blue.svg)][site-develop]
@@ -73,7 +73,7 @@ If you wish to fork or modify the code, visit the [GitHub project page][scm], wh
 
 The project has been released under the [MIT License][license].
 
-[bintray-repo]: https://bintray.com/bernardo-mg/maven/tabletop-intervals/view
+[bintray-repo]: https://bintray.com/bernardo-mg/tabletop-toolkits/interval/view
 [maven-repo]: http://mvnrepository.com/artifact/com.wandrell.tabletop/tabletop-intervals
 [issues]: https://github.com/bernardo-mg/tabletop-intervals/issues
 [javadoc-develop]: http://docs.wandrell.com/development/maven/tabletop-intervals/apidocs
