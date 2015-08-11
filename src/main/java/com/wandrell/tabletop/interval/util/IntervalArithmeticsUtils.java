@@ -43,8 +43,6 @@ public final class IntervalArithmeticsUtils {
      */
     public static final Interval getLowerDifference(final Interval intervalA,
             final Interval intervalB) {
-        final Interval lowerDifference;
-        Integer upper, lower;
 
         checkNotNull(intervalA,
                 "Received a null pointer as the first interval");
@@ -56,6 +54,10 @@ public final class IntervalArithmeticsUtils {
         checkArgument(isValid(intervalB),
                 "Received an invalid interval as the second argument");
 
+        final Interval lowerDifference;
+        final Integer upper;
+        final Integer lower;
+        
         if ((!isOverlapped(intervalA, intervalB)) || (intervalA.getLowerLimit()
                 .equals(intervalB.getLowerLimit()))) {
             throw new IllegalArgumentException(
@@ -86,8 +88,6 @@ public final class IntervalArithmeticsUtils {
      */
     public static final Interval getUpperDifference(final Interval intervalA,
             final Interval intervalB) {
-        final Interval upperDifference;
-        final Integer upper, lower;
 
         checkNotNull(intervalA,
                 "Received a null pointer as the first interval");
@@ -99,6 +99,10 @@ public final class IntervalArithmeticsUtils {
         checkArgument(isValid(intervalB),
                 "Received an invalid interval as the second argument");
 
+        final Interval upperDifference;
+        final Integer upper;
+        final Integer lower;
+        
         if ((!isOverlapped(intervalA, intervalB)) || (intervalA.getUpperLimit()
                 .equals(intervalB.getUpperLimit()))) {
             throw new IllegalArgumentException(
