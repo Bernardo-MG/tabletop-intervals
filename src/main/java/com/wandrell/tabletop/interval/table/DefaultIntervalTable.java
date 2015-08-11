@@ -129,6 +129,11 @@ public final class DefaultIntervalTable<V> implements IntervalTable<V> {
     }
 
     @Override
+    public final String getStringRepresentation() {
+        return String.format("[%d,%d]", getLowerLimit(), getUpperLimit());
+    }
+
+    @Override
     public final Integer getUpperLimit() {
         return getIntervalsModifiable().lastKey().getUpperLimit();
     }

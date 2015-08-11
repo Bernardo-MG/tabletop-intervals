@@ -131,14 +131,24 @@ public final class DefaultInterval implements Interval {
         return Objects.hash(range);
     }
 
-    @Override
+    /**
+     * Sets the interval's lower limit.
+     * 
+     * @param lowerLimit
+     *            the lower limit
+     */
     public final void setLowerLimit(final Integer lowerLimit) {
         checkNotNull(lowerLimit, "Received a null pointer as lower limit");
 
         range = Range.closed(lowerLimit, range.upperEndpoint());
     }
 
-    @Override
+    /**
+     * Sets the interval's upper limit.
+     * 
+     * @param upperLimit
+     *            the upper limit
+     */
     public final void setUpperLimit(final Integer upperLimit) {
         checkNotNull(upperLimit, "Received a null pointer as upper limit");
 

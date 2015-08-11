@@ -70,7 +70,7 @@ import com.wandrell.tabletop.interval.Interval;
  * @param <V>
  *            the type of the values assigned to the intervals
  */
-public interface IntervalTable<V> {
+public interface IntervalTable<V> extends Interval {
 
     /**
      * Returns all the intervals and their assigned values.
@@ -78,20 +78,6 @@ public interface IntervalTable<V> {
      * @return all the values and their value
      */
     public Map<Interval, V> getIntervals();
-
-    /**
-     * Returns the lower limit of the table.
-     * 
-     * @return the lower limit
-     */
-    public Integer getLowerLimit();
-
-    /**
-     * Returns the upper limit of the table.
-     * 
-     * @return the upper limit
-     */
-    public Integer getUpperLimit();
 
     /**
      * Gets the value assigned to the specified number.

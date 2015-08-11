@@ -18,7 +18,6 @@ package com.wandrell.tabletop.testing.utils.test.unit.interval.exception;
 import org.testng.annotations.Test;
 
 import com.wandrell.tabletop.interval.DefaultInterval;
-import com.wandrell.tabletop.interval.Interval;
 
 public final class TestExceptionsSetIntervalDefaultInterval {
 
@@ -28,7 +27,7 @@ public final class TestExceptionsSetIntervalDefaultInterval {
 
     @Test(expectedExceptions = IllegalArgumentException.class)
     public final void testSetLimits_Lower() {
-        final Interval interval;
+        final DefaultInterval interval;
 
         interval = new DefaultInterval();
 
@@ -38,7 +37,7 @@ public final class TestExceptionsSetIntervalDefaultInterval {
 
     @Test(expectedExceptions = IllegalArgumentException.class)
     public final void testSetLimits_Upper() {
-        final Interval interval;
+        final DefaultInterval interval;
 
         interval = new DefaultInterval();
 

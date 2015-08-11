@@ -50,20 +50,4 @@ public interface Interval {
      */
     public Integer getUpperLimit();
 
-    /**
-     * Sets the interval's lower limit.
-     * 
-     * @param lowerLimit
-     *            the lower limit
-     */
-    public void setLowerLimit(final Integer lowerLimit);
-
-    /**
-     * Sets the interval's upper limit.
-     * 
-     * @param upperLimit
-     *            the upper limit
-     */
-    public void setUpperLimit(final Integer upperLimit);
-
 }

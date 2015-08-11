@@ -57,7 +57,7 @@ public final class IntervalArithmeticsUtils {
         final Interval lowerDifference;
         final Integer upper;
         final Integer lower;
-        
+
         if ((!isOverlapped(intervalA, intervalB)) || (intervalA.getLowerLimit()
                 .equals(intervalB.getLowerLimit()))) {
             throw new IllegalArgumentException(
@@ -102,7 +102,7 @@ public final class IntervalArithmeticsUtils {
         final Interval upperDifference;
         final Integer upper;
         final Integer lower;
-        
+
         if ((!isOverlapped(intervalA, intervalB)) || (intervalA.getUpperLimit()
                 .equals(intervalB.getUpperLimit()))) {
             throw new IllegalArgumentException(
