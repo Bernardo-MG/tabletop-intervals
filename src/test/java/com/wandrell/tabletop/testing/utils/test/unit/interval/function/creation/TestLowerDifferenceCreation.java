@@ -15,35 +15,21 @@
  */
 package com.wandrell.tabletop.testing.utils.test.unit.interval.function.creation;
 
-import java.util.Iterator;
-
 import org.mockito.Mockito;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.wandrell.tabletop.interval.Interval;
 import com.wandrell.tabletop.interval.util.IntervalArithmeticsUtils;
-import com.wandrell.tabletop.testing.utils.framework.conf.factory.parameter.IntervalValuesTestParametersFactory;
 
 public final class TestLowerDifferenceCreation {
-
-    private static final String DATA = "data";
-
-    @DataProvider(name = DATA)
-    public final static Iterator<Object[]> getData() throws Exception {
-        return IntervalValuesTestParametersFactory.getInstance()
-                .getLowerDifference();
-    }
 
     public TestLowerDifferenceCreation() {
         super();
     }
 
-    @Test(dataProvider = DATA)
-    public final void testLowerDifference(final Integer lowerA,
-            final Integer upperA, final Integer lowerB, final Integer upperB,
-            final Integer lowerE, final Integer upperE) {
+    @Test
+    public final void testLowerDifference() {
         final Interval intervalA;
         final Interval intervalB;
         final Interval intervalResult;
@@ -51,27 +37,21 @@ public final class TestLowerDifferenceCreation {
         intervalA = Mockito.mock(Interval.class);
         intervalB = Mockito.mock(Interval.class);
 
-        Mockito.when(intervalA.getLowerLimit()).thenReturn(lowerA);
-        Mockito.when(intervalA.getUpperLimit()).thenReturn(upperA);
+        Mockito.when(intervalA.getLowerLimit()).thenReturn(1);
+        Mockito.when(intervalA.getUpperLimit()).thenReturn(10);
 
-        Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerB);
-        Mockito.when(intervalB.getUpperLimit()).thenReturn(upperB);
+        Mockito.when(intervalB.getLowerLimit()).thenReturn(3);
+        Mockito.when(intervalB.getUpperLimit()).thenReturn(5);
 
         intervalResult = IntervalArithmeticsUtils.getLowerDifference(intervalA,
                 intervalB);
 
-        if (lowerE != null) {
-            Assert.assertEquals(intervalResult.getLowerLimit(), lowerE);
-            Assert.assertEquals(intervalResult.getUpperLimit(), upperE);
-        } else {
-            Assert.assertNull(intervalResult);
-        }
+        Assert.assertEquals(intervalResult.getLowerLimit(), (Integer) 1);
+        Assert.assertEquals(intervalResult.getUpperLimit(), (Integer) 2);
     }
 
-    @Test(dataProvider = DATA)
-    public final void testLowerDifference_Symmetric(final Integer lowerA,
-            final Integer upperA, final Integer lowerB, final Integer upperB,
-            final Integer lowerE, final Integer upperE) {
+    @Test
+    public final void testLowerDifference_NotProper() {
         final Interval intervalA;
         final Interval intervalB;
         final Interval intervalResult;
@@ -79,21 +59,17 @@ public final class TestLowerDifferenceCreation {
         intervalA = Mockito.mock(Interval.class);
         intervalB = Mockito.mock(Interval.class);
 
-        Mockito.when(intervalA.getLowerLimit()).thenReturn(lowerA);
-        Mockito.when(intervalA.getUpperLimit()).thenReturn(upperA);
+        Mockito.when(intervalA.getLowerLimit()).thenReturn(1);
+        Mockito.when(intervalA.getUpperLimit()).thenReturn(10);
 
-        Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerB);
-        Mockito.when(intervalB.getUpperLimit()).thenReturn(upperB);
+        Mockito.when(intervalB.getLowerLimit()).thenReturn(2);
+        Mockito.when(intervalB.getUpperLimit()).thenReturn(5);
 
-        intervalResult = IntervalArithmeticsUtils.getLowerDifference(intervalB,
-                intervalA);
+        intervalResult = IntervalArithmeticsUtils.getLowerDifference(intervalA,
+                intervalB);
 
-        if (lowerE != null) {
-            Assert.assertEquals(intervalResult.getLowerLimit(), lowerE);
-            Assert.assertEquals(intervalResult.getUpperLimit(), upperE);
-        } else {
-            Assert.assertNull(intervalResult);
-        }
+        Assert.assertEquals(intervalResult.getLowerLimit(), (Integer) 1);
+        Assert.assertEquals(intervalResult.getUpperLimit(), (Integer) 1);
     }
 
 }

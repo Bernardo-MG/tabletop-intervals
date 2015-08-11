@@ -56,18 +56,18 @@ public final class IntervalArithmeticsUtils {
         checkArgument(isValid(intervalB),
                 "Received an invalid interval as the second argument");
 
-        if ((isOverlapped(intervalA, intervalB)) && (!intervalA.getLowerLimit()
+        if ((!isOverlapped(intervalA, intervalB)) || (intervalA.getLowerLimit()
                 .equals(intervalB.getLowerLimit()))) {
-            upper = (Math.max(intervalA.getLowerLimit(),
-                    intervalB.getLowerLimit()) - 1);
-            lower = (Math.min(intervalA.getLowerLimit(),
-                    intervalB.getLowerLimit()));
-
-            lowerDifference = new DefaultInterval(lower, upper);
-        } else {
             throw new IllegalArgumentException(
                     "The intervals are the same or don't overlap");
         }
+
+        upper = (Math.max(intervalA.getLowerLimit(), intervalB.getLowerLimit())
+                - 1);
+        lower = (Math.min(intervalA.getLowerLimit(),
+                intervalB.getLowerLimit()));
+
+        lowerDifference = new DefaultInterval(lower, upper);
 
         return lowerDifference;
     }
@@ -99,20 +99,17 @@ public final class IntervalArithmeticsUtils {
         checkArgument(isValid(intervalB),
                 "Received an invalid interval as the second argument");
 
-        // *-----* = this interval
-        // O-----O = received interval
-        if ((isOverlapped(intervalA, intervalB)) && (!intervalA.getUpperLimit()
+        if ((!isOverlapped(intervalA, intervalB)) || (intervalA.getUpperLimit()
                 .equals(intervalB.getUpperLimit()))) {
-            upper = Math.max(intervalA.getUpperLimit(),
-                    intervalB.getUpperLimit());
-            lower = (Math.min(intervalA.getUpperLimit(),
-                    intervalB.getUpperLimit()) + 1);
-
-            upperDifference = new DefaultInterval(lower, upper);
-        } else {
             throw new IllegalArgumentException(
                     "The intervals upper limits are the same or the intervals don't overlap");
         }
+
+        upper = Math.max(intervalA.getUpperLimit(), intervalB.getUpperLimit());
+        lower = (Math.min(intervalA.getUpperLimit(), intervalB.getUpperLimit())
+                + 1);
+
+        upperDifference = new DefaultInterval(lower, upper);
 
         return upperDifference;
     }

@@ -15,165 +15,140 @@
  */
 package com.wandrell.tabletop.testing.utils.test.unit.interval.function.recognition;
 
-import java.util.Iterator;
-
 import org.mockito.Mockito;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.wandrell.tabletop.interval.Interval;
 import com.wandrell.tabletop.interval.util.IntervalArithmeticsUtils;
-import com.wandrell.tabletop.testing.utils.framework.conf.factory.parameter.IntervalValuesTestParametersFactory;
 
 public final class TestContainedRecognition {
-
-    private static final String CONTAINED     = "contained";
-    private static final String NOT_CONTAINED = "not_contained";
-
-    @DataProvider(name = CONTAINED)
-    public final static Iterator<Object[]> getContained() throws Exception {
-        return IntervalValuesTestParametersFactory.getInstance().getContained();
-    }
-
-    @DataProvider(name = NOT_CONTAINED)
-    public final static Iterator<Object[]> getNotContained() throws Exception {
-        return IntervalValuesTestParametersFactory.getInstance()
-                .getNotContained();
-    }
 
     public TestContainedRecognition() {
         super();
     }
 
-    @Test(dataProvider = CONTAINED)
-    public final void testIsConsecutiveTo(final Integer lowerA,
-            final Integer upperA, final Integer lowerB, final Integer upperB) {
+    @Test
+    public final void testIsConsecutiveTo() {
         final Interval intervalA;
         final Interval intervalB;
 
         intervalA = Mockito.mock(Interval.class);
         intervalB = Mockito.mock(Interval.class);
 
-        Mockito.when(intervalA.getLowerLimit()).thenReturn(lowerA);
-        Mockito.when(intervalA.getUpperLimit()).thenReturn(upperA);
+        Mockito.when(intervalA.getLowerLimit()).thenReturn(2);
+        Mockito.when(intervalA.getUpperLimit()).thenReturn(5);
 
-        Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerB);
-        Mockito.when(intervalB.getUpperLimit()).thenReturn(upperB);
+        Mockito.when(intervalB.getLowerLimit()).thenReturn(1);
+        Mockito.when(intervalB.getUpperLimit()).thenReturn(10);
 
         Assert.assertTrue(
                 !IntervalArithmeticsUtils.isRightAfter(intervalA, intervalB));
     }
 
-    @Test(dataProvider = CONTAINED)
-    public final void testIsContained_Contained(final Integer lowerA,
-            final Integer upperA, final Integer lowerB, final Integer upperB) {
+    @Test
+    public final void testIsContained_Contained() {
         final Interval intervalA;
         final Interval intervalB;
 
         intervalA = Mockito.mock(Interval.class);
         intervalB = Mockito.mock(Interval.class);
 
-        Mockito.when(intervalA.getLowerLimit()).thenReturn(lowerA);
-        Mockito.when(intervalA.getUpperLimit()).thenReturn(upperA);
+        Mockito.when(intervalA.getLowerLimit()).thenReturn(2);
+        Mockito.when(intervalA.getUpperLimit()).thenReturn(5);
 
-        Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerB);
-        Mockito.when(intervalB.getUpperLimit()).thenReturn(upperB);
+        Mockito.when(intervalB.getLowerLimit()).thenReturn(1);
+        Mockito.when(intervalB.getUpperLimit()).thenReturn(10);
 
         Assert.assertTrue(
                 IntervalArithmeticsUtils.isContaining(intervalB, intervalA));
     }
 
-    @Test(dataProvider = NOT_CONTAINED)
-    public final void testIsContained_NotContained(final Integer lowerA,
-            final Integer upperA, final Integer lowerB, final Integer upperB) {
+    @Test
+    public final void testIsContained_NotContained() {
         final Interval intervalA;
         final Interval intervalB;
 
         intervalA = Mockito.mock(Interval.class);
         intervalB = Mockito.mock(Interval.class);
 
-        Mockito.when(intervalA.getLowerLimit()).thenReturn(lowerA);
-        Mockito.when(intervalA.getUpperLimit()).thenReturn(upperA);
+        Mockito.when(intervalA.getLowerLimit()).thenReturn(1);
+        Mockito.when(intervalA.getUpperLimit()).thenReturn(10);
 
-        Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerB);
-        Mockito.when(intervalB.getUpperLimit()).thenReturn(upperB);
+        Mockito.when(intervalB.getLowerLimit()).thenReturn(11);
+        Mockito.when(intervalB.getUpperLimit()).thenReturn(15);
 
         Assert.assertTrue(
                 !IntervalArithmeticsUtils.isContaining(intervalB, intervalA));
     }
 
-    @Test(dataProvider = CONTAINED)
-    public void testIsNextTo(final Integer lowerA, final Integer upperA,
-            final Integer lowerB, final Integer upperB) {
+    @Test
+    public final void testIsNextTo() {
         final Interval intervalA;
         final Interval intervalB;
 
         intervalA = Mockito.mock(Interval.class);
         intervalB = Mockito.mock(Interval.class);
 
-        Mockito.when(intervalA.getLowerLimit()).thenReturn(lowerA);
-        Mockito.when(intervalA.getUpperLimit()).thenReturn(upperA);
+        Mockito.when(intervalA.getLowerLimit()).thenReturn(2);
+        Mockito.when(intervalA.getUpperLimit()).thenReturn(5);
 
-        Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerB);
-        Mockito.when(intervalB.getUpperLimit()).thenReturn(upperB);
+        Mockito.when(intervalB.getLowerLimit()).thenReturn(1);
+        Mockito.when(intervalB.getUpperLimit()).thenReturn(10);
 
         Assert.assertTrue(
                 !IntervalArithmeticsUtils.isNextTo(intervalA, intervalB));
     }
 
-    @Test(dataProvider = CONTAINED)
-    public final void testIsOverlapped(final Integer lowerA,
-            final Integer upperA, final Integer lowerB, final Integer upperB) {
+    @Test
+    public final void testIsOverlapped() {
         final Interval intervalA;
         final Interval intervalB;
 
         intervalA = Mockito.mock(Interval.class);
         intervalB = Mockito.mock(Interval.class);
 
-        Mockito.when(intervalA.getLowerLimit()).thenReturn(lowerA);
-        Mockito.when(intervalA.getUpperLimit()).thenReturn(upperA);
+        Mockito.when(intervalA.getLowerLimit()).thenReturn(2);
+        Mockito.when(intervalA.getUpperLimit()).thenReturn(5);
 
-        Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerB);
-        Mockito.when(intervalB.getUpperLimit()).thenReturn(upperB);
+        Mockito.when(intervalB.getLowerLimit()).thenReturn(1);
+        Mockito.when(intervalB.getUpperLimit()).thenReturn(10);
 
         Assert.assertTrue(
                 IntervalArithmeticsUtils.isOverlapped(intervalA, intervalB));
     }
 
-    @Test(dataProvider = CONTAINED)
-    public final void testIsOverlapped_Symmetric(final Integer lowerA,
-            final Integer upperA, final Integer lowerB, final Integer upperB) {
+    @Test
+    public final void testIsOverlapped_Symmetric() {
         final Interval intervalA;
         final Interval intervalB;
 
         intervalA = Mockito.mock(Interval.class);
         intervalB = Mockito.mock(Interval.class);
 
-        Mockito.when(intervalA.getLowerLimit()).thenReturn(lowerA);
-        Mockito.when(intervalA.getUpperLimit()).thenReturn(upperA);
+        Mockito.when(intervalA.getLowerLimit()).thenReturn(2);
+        Mockito.when(intervalA.getUpperLimit()).thenReturn(5);
 
-        Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerB);
-        Mockito.when(intervalB.getUpperLimit()).thenReturn(upperB);
+        Mockito.when(intervalB.getLowerLimit()).thenReturn(1);
+        Mockito.when(intervalB.getUpperLimit()).thenReturn(10);
 
         Assert.assertTrue(
                 IntervalArithmeticsUtils.isOverlapped(intervalB, intervalA));
     }
 
-    @Test(dataProvider = CONTAINED)
-    public final void testIsPreviousTo(final Integer lowerA,
-            final Integer upperA, final Integer lowerB, final Integer upperB) {
+    @Test
+    public final void testIsPreviousTo() {
         final Interval intervalA;
         final Interval intervalB;
 
         intervalA = Mockito.mock(Interval.class);
         intervalB = Mockito.mock(Interval.class);
 
-        Mockito.when(intervalA.getLowerLimit()).thenReturn(lowerA);
-        Mockito.when(intervalA.getUpperLimit()).thenReturn(upperA);
+        Mockito.when(intervalA.getLowerLimit()).thenReturn(2);
+        Mockito.when(intervalA.getUpperLimit()).thenReturn(5);
 
-        Mockito.when(intervalB.getLowerLimit()).thenReturn(lowerB);
-        Mockito.when(intervalB.getUpperLimit()).thenReturn(upperB);
+        Mockito.when(intervalB.getLowerLimit()).thenReturn(1);
+        Mockito.when(intervalB.getUpperLimit()).thenReturn(10);
 
         Assert.assertTrue(
                 !IntervalArithmeticsUtils.isRightBefore(intervalA, intervalB));
