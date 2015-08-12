@@ -59,9 +59,9 @@
  * applied to the game.
  * <p>
  * This is all represented by the
- * {@link com.wandrell.tabletop.interval.table.IntervalsTable IntervalTable}
+ * {@link com.wandrell.tabletop.interval.table.IntervalsTable IntervalsTable}
  * interface, and it's default implementation
  * {@link com.wandrell.tabletop.interval.table.DefaultIntervalsTable
- * DefaultIntervalTable}.
+ * DefaultIntervalsTable}.
  */
 package com.wandrell.tabletop.interval.table;
