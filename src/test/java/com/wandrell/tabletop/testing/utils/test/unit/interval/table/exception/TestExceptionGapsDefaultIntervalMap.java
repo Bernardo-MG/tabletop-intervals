@@ -18,12 +18,12 @@ package com.wandrell.tabletop.testing.utils.test.unit.interval.table.exception;
 import org.testng.annotations.Test;
 
 import com.wandrell.tabletop.interval.DefaultInterval;
-import com.wandrell.tabletop.interval.table.DefaultIntervalTable;
-import com.wandrell.tabletop.interval.table.IntervalTable;
+import com.wandrell.tabletop.interval.table.DefaultIntervalsTable;
+import com.wandrell.tabletop.interval.table.IntervalsTable;
 
 /**
- * Unit test for {@link IntervalTable}, checking that exceptions are thrown when
- * adding a non continuous interval.
+ * Unit test for {@link IntervalsTable}, checking that exceptions are thrown
+ * when adding a non continuous interval.
  * <p>
  * Checks the following cases:
  * <ol>
@@ -48,9 +48,10 @@ public final class TestExceptionGapsDefaultIntervalMap {
      */
     @Test(expectedExceptions = IllegalArgumentException.class)
     public final void testGaps() {
-        final DefaultIntervalTable<Integer> table;
+        final DefaultIntervalsTable<Integer> table;
 
-        table = new DefaultIntervalTable<Integer>(new DefaultInterval(1, 1), 0);
+        table = new DefaultIntervalsTable<Integer>(new DefaultInterval(1, 1),
+                0);
         table.addInterval(new DefaultInterval(6, 10), 1);
     }
 

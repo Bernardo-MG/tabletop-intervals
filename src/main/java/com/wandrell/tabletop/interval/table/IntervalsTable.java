@@ -68,7 +68,7 @@ import com.wandrell.tabletop.interval.Interval;
  * @param <V>
  *            the type of the values assigned to the intervals
  */
-public interface IntervalTable<V> extends Interval {
+public interface IntervalsTable<V> extends Interval {
 
     /**
      * Returns all the intervals and their assigned values.

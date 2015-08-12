@@ -40,7 +40,7 @@ import com.wandrell.tabletop.interval.util.IntervalComparator;
  * @param <V>
  *            the type of the values assigned to the intervals
  */
-public final class DefaultIntervalTable<V> implements IntervalTable<V> {
+public final class DefaultIntervalsTable<V> implements IntervalsTable<V> {
 
     /**
      * The intervals composing the table and their values.
@@ -54,7 +54,7 @@ public final class DefaultIntervalTable<V> implements IntervalTable<V> {
      * @param table
      *            the table to copy
      */
-    public DefaultIntervalTable(final DefaultIntervalTable<V> table) {
+    public DefaultIntervalsTable(final DefaultIntervalsTable<V> table) {
         super();
 
         checkNotNull(table, "Received a null pointer as intervals table");
@@ -77,7 +77,7 @@ public final class DefaultIntervalTable<V> implements IntervalTable<V> {
      * @param value
      *            initial interval's value
      */
-    public DefaultIntervalTable(final Interval interval, final V value) {
+    public DefaultIntervalsTable(final Interval interval, final V value) {
         super();
 
         checkNotNull(interval, "Received a null pointer as interval");
@@ -108,7 +108,7 @@ public final class DefaultIntervalTable<V> implements IntervalTable<V> {
 
     @Override
     public final boolean equals(final Object obj) {
-        final DefaultIntervalTable<?> other;
+        final DefaultIntervalsTable<?> other;
 
         if (this == obj) {
             return true;
@@ -122,7 +122,7 @@ public final class DefaultIntervalTable<V> implements IntervalTable<V> {
             return false;
         }
 
-        other = (DefaultIntervalTable<?>) obj;
+        other = (DefaultIntervalsTable<?>) obj;
         return Objects.equals(tableIntervals, other.tableIntervals);
     }
 

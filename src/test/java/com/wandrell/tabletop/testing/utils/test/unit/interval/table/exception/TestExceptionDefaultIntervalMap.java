@@ -18,11 +18,11 @@ package com.wandrell.tabletop.testing.utils.test.unit.interval.table.exception;
 import org.testng.annotations.Test;
 
 import com.wandrell.tabletop.interval.DefaultInterval;
-import com.wandrell.tabletop.interval.table.DefaultIntervalTable;
-import com.wandrell.tabletop.interval.table.IntervalTable;
+import com.wandrell.tabletop.interval.table.DefaultIntervalsTable;
+import com.wandrell.tabletop.interval.table.IntervalsTable;
 
 /**
- * Unit test for {@link IntervalTable}, checking that exceptions are thrown for
+ * Unit test for {@link IntervalsTable}, checking that exceptions are thrown for
  * invalid values.
  * <p>
  * Checks the following cases:
@@ -48,7 +48,7 @@ public final class TestExceptionDefaultIntervalMap {
      */
     @Test(expectedExceptions = IndexOutOfBoundsException.class)
     public final void testGetValue_NotFound() {
-        final IntervalTable<Integer> table; // Table tested
+        final IntervalsTable<Integer> table; // Table tested
 
         table = getTestTable();
 
@@ -60,10 +60,11 @@ public final class TestExceptionDefaultIntervalMap {
      * 
      * @return the table to be tested
      */
-    private final DefaultIntervalTable<Integer> getTestTable() {
-        final DefaultIntervalTable<Integer> table;
+    private final DefaultIntervalsTable<Integer> getTestTable() {
+        final DefaultIntervalsTable<Integer> table;
 
-        table = new DefaultIntervalTable<Integer>(new DefaultInterval(1, 1), 0);
+        table = new DefaultIntervalsTable<Integer>(new DefaultInterval(1, 1),
+                0);
         table.addInterval(new DefaultInterval(2, 5), 2);
         table.addInterval(new DefaultInterval(6, 10), 1);
 

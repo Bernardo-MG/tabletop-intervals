@@ -33,9 +33,9 @@
  * assigned to it.
  * <p>
  * This is represented by the
- * {@link com.wandrell.tabletop.interval.table.IntervalTable IntervalTable}
+ * {@link com.wandrell.tabletop.interval.table.IntervalsTable IntervalTable}
  * interface, and it's default implementation
- * {@link com.wandrell.tabletop.interval.table.DefaultIntervalTable
+ * {@link com.wandrell.tabletop.interval.table.DefaultIntervalsTable
  * DefaultIntervalTable}, which are kept in the
  * {@link com.wandrell.tabletop.interval.table table} package.
  */

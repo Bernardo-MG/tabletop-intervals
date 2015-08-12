@@ -19,11 +19,11 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.wandrell.tabletop.interval.DefaultInterval;
-import com.wandrell.tabletop.interval.table.DefaultIntervalTable;
-import com.wandrell.tabletop.interval.table.IntervalTable;
+import com.wandrell.tabletop.interval.table.DefaultIntervalsTable;
+import com.wandrell.tabletop.interval.table.IntervalsTable;
 
 /**
- * Unit test for {@link IntervalTable}, checking that the query methods work
+ * Unit test for {@link IntervalsTable}, checking that the query methods work
  * correctly.
  * <p>
  * Checks the following cases:
@@ -54,7 +54,7 @@ public final class TestGetValuesDefaultIntervalMap {
      */
     @Test
     public final void testGetValue_FirstInterval() {
-        final IntervalTable<Integer> table; // Table tested
+        final IntervalsTable<Integer> table; // Table tested
 
         table = getTestTable();
 
@@ -66,7 +66,7 @@ public final class TestGetValuesDefaultIntervalMap {
      */
     @Test
     public final void testGetValue_LowerLimit_SecondInterval() {
-        final IntervalTable<Integer> table; // Table tested
+        final IntervalsTable<Integer> table; // Table tested
 
         table = getTestTable();
 
@@ -78,7 +78,7 @@ public final class TestGetValuesDefaultIntervalMap {
      */
     @Test
     public final void testGetValue_SecondInterval() {
-        final IntervalTable<Integer> table; // Table tested
+        final IntervalsTable<Integer> table; // Table tested
 
         table = getTestTable();
 
@@ -90,7 +90,7 @@ public final class TestGetValuesDefaultIntervalMap {
      */
     @Test
     public final void testGetValue_UpperLimit() {
-        final IntervalTable<Integer> table; // Table tested
+        final IntervalsTable<Integer> table; // Table tested
 
         table = getTestTable();
 
@@ -102,7 +102,7 @@ public final class TestGetValuesDefaultIntervalMap {
      */
     @Test
     public final void testGetValue_UpperLimit_FirstInterval() {
-        final IntervalTable<Integer> table; // Table tested
+        final IntervalsTable<Integer> table; // Table tested
 
         table = getTestTable();
 
@@ -114,7 +114,7 @@ public final class TestGetValuesDefaultIntervalMap {
      */
     @Test
     public final void testGetValue_UpperLimit_SecondInterval() {
-        final IntervalTable<Integer> table; // Table tested
+        final IntervalsTable<Integer> table; // Table tested
 
         table = getTestTable();
 
@@ -126,7 +126,7 @@ public final class TestGetValuesDefaultIntervalMap {
      */
     @Test
     public final void testLowerLimit() {
-        final IntervalTable<Integer> table; // Table tested
+        final IntervalsTable<Integer> table; // Table tested
 
         table = getTestTable();
 
@@ -138,7 +138,7 @@ public final class TestGetValuesDefaultIntervalMap {
      */
     @Test
     public final void testUpperLimit() {
-        final IntervalTable<Integer> table; // Table tested
+        final IntervalsTable<Integer> table; // Table tested
 
         table = getTestTable();
 
@@ -150,10 +150,11 @@ public final class TestGetValuesDefaultIntervalMap {
      * 
      * @return the table to be tested
      */
-    private final DefaultIntervalTable<Integer> getTestTable() {
-        final DefaultIntervalTable<Integer> table;
+    private final DefaultIntervalsTable<Integer> getTestTable() {
+        final DefaultIntervalsTable<Integer> table;
 
-        table = new DefaultIntervalTable<Integer>(new DefaultInterval(1, 1), 0);
+        table = new DefaultIntervalsTable<Integer>(new DefaultInterval(1, 1),
+                0);
         table.addInterval(new DefaultInterval(2, 5), 2);
         table.addInterval(new DefaultInterval(6, 10), 1);
 
