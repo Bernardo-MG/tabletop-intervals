@@ -70,10 +70,8 @@ public final class DefaultIntervalsTable<V> implements IntervalsTable<V> {
     /**
      * Constructs a {@code DefaultIntervalTable} with the specified parameters.
      * 
-     * @param lowerLimit
-     *            initial interval's lower limit
-     * @param upperLimit
-     *            initial interval's upper limit
+     * @param interval
+     *            initial interval
      * @param value
      *            initial interval's value
      */
