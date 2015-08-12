@@ -143,14 +143,9 @@ public final class DefaultIntervalsTable<V> implements IntervalsTable<V> {
     public final V getValue(final Integer number) {
 
         if (!isContainedInInterval(number)) {
-            if (getIntervalsModifiable().isEmpty()) {
-                throw new IndexOutOfBoundsException(String
-                        .format("%d is out of the empty interval", number));
-            } else {
-                throw new IndexOutOfBoundsException(
-                        String.format("%d is out of the interval [%d,%d]",
-                                number, getLowerLimit(), getUpperLimit()));
-            }
+            throw new IndexOutOfBoundsException(
+                    String.format("%d is out of the interval [%d,%d]", number,
+                            getLowerLimit(), getUpperLimit()));
         }
 
         final Iterator<Entry<Interval, V>> itrIntervals;
@@ -197,15 +192,7 @@ public final class DefaultIntervalsTable<V> implements IntervalsTable<V> {
      * @return {@code true} if the value is contained, {@code false} otherwise
      */
     private final Boolean isContainedInInterval(final Integer value) {
-        final Boolean result;
-
-        if (getIntervalsModifiable().isEmpty()) {
-            result = false;
-        } else {
-            result = ((value >= getLowerLimit()) && (value <= getUpperLimit()));
-        }
-
-        return result;
+        return ((value >= getLowerLimit()) && (value <= getUpperLimit()));
     }
 
 }
