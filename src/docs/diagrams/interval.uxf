@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>350</x>
+      <y>200</y>
+      <w>140</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>/Interval/
+bg=cyan
+--
+
+--
++getLowerLimit(): int
++getUpperLimit(): int
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

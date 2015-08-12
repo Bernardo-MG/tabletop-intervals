@@ -12,9 +12,11 @@ This project is meant to handle such situations, by offering an API and default 
 
 The library supports the following types of intervals:
 
-- Basic interval
-- Interval table
+- [Basic interval][interval_structures]
+- [Interval table][interval_structures]
 
 Additionally, it offers the following utilities classes:
 
 - Utilities class for interval operations
+
+[interval_structures]: ./structures.html
