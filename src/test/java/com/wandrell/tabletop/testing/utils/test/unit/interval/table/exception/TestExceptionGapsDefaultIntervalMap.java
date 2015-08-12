@@ -15,47 +15,43 @@
  */
 package com.wandrell.tabletop.testing.utils.test.unit.interval.table.exception;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 import org.testng.annotations.Test;
 
 import com.wandrell.tabletop.interval.DefaultInterval;
-import com.wandrell.tabletop.interval.Interval;
 import com.wandrell.tabletop.interval.table.DefaultIntervalTable;
 import com.wandrell.tabletop.interval.table.IntervalTable;
 
 /**
  * Unit test for {@link IntervalTable}, checking that exceptions are thrown when
- * initializing with a non continuous set of intervals.
+ * adding a non continuous interval.
  * <p>
  * Checks the following cases:
  * <ol>
- * <li>An {@code IndexOutOfBoundsException} is thrown when acquiring a the value
- * for a number out of the interval.</li>
+ * <li>An {@code IllegalArgumentException} is thrown adding a interval which is
+ * not consecutive to the upper limit.</li>
  * </ol>
  * 
  * @author Bernardo Martínez Garrido
  */
 public final class TestExceptionGapsDefaultIntervalMap {
 
+    /**
+     * Default constructor.
+     */
     public TestExceptionGapsDefaultIntervalMap() {
         super();
     }
 
+    /**
+     * Tests that an {@code IllegalArgumentException} is thrown adding a
+     * interval which is not consecutive to the upper limit.
+     */
     @Test(expectedExceptions = IllegalArgumentException.class)
     public final void testGaps() {
-        new DefaultIntervalTable<Integer>(getIntervalsMap());
-    }
+        final DefaultIntervalTable<Integer> table;
 
-    private final Map<Interval, Integer> getIntervalsMap() {
-        final Map<Interval, Integer> map;
-
-        map = new LinkedHashMap<Interval, Integer>();
-        map.put(new DefaultInterval(1, 1), 0);
-        map.put(new DefaultInterval(6, 10), 1);
-
-        return map;
+        table = new DefaultIntervalTable<Integer>(new DefaultInterval(1, 1), 0);
+        table.addInterval(new DefaultInterval(6, 10), 1);
     }
 
 }

@@ -15,14 +15,10 @@
  */
 package com.wandrell.tabletop.testing.utils.test.unit.interval.table;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.wandrell.tabletop.interval.DefaultInterval;
-import com.wandrell.tabletop.interval.Interval;
 import com.wandrell.tabletop.interval.table.DefaultIntervalTable;
 import com.wandrell.tabletop.interval.table.IntervalTable;
 
@@ -60,7 +56,7 @@ public final class TestGetValuesDefaultIntervalMap {
     public final void testGetValue_FirstInterval() {
         final IntervalTable<Integer> table; // Table tested
 
-        table = new DefaultIntervalTable<Integer>(getIntervalsMap());
+        table = getTestTable();
 
         Assert.assertEquals(table.getValue(table.getLowerLimit()), (Integer) 0);
     }
@@ -72,7 +68,7 @@ public final class TestGetValuesDefaultIntervalMap {
     public final void testGetValue_LowerLimit_SecondInterval() {
         final IntervalTable<Integer> table; // Table tested
 
-        table = new DefaultIntervalTable<Integer>(getIntervalsMap());
+        table = getTestTable();
 
         Assert.assertEquals(table.getValue(2), (Integer) 2);
     }
@@ -84,7 +80,7 @@ public final class TestGetValuesDefaultIntervalMap {
     public final void testGetValue_SecondInterval() {
         final IntervalTable<Integer> table; // Table tested
 
-        table = new DefaultIntervalTable<Integer>(getIntervalsMap());
+        table = getTestTable();
 
         Assert.assertEquals(table.getValue(3), (Integer) 2);
     }
@@ -96,7 +92,7 @@ public final class TestGetValuesDefaultIntervalMap {
     public final void testGetValue_UpperLimit() {
         final IntervalTable<Integer> table; // Table tested
 
-        table = new DefaultIntervalTable<Integer>(getIntervalsMap());
+        table = getTestTable();
 
         Assert.assertEquals(table.getValue(table.getUpperLimit()), (Integer) 1);
     }
@@ -108,7 +104,7 @@ public final class TestGetValuesDefaultIntervalMap {
     public final void testGetValue_UpperLimit_FirstInterval() {
         final IntervalTable<Integer> table; // Table tested
 
-        table = new DefaultIntervalTable<Integer>(getIntervalsMap());
+        table = getTestTable();
 
         Assert.assertEquals(table.getValue(1), (Integer) 0);
     }
@@ -120,7 +116,7 @@ public final class TestGetValuesDefaultIntervalMap {
     public final void testGetValue_UpperLimit_SecondInterval() {
         final IntervalTable<Integer> table; // Table tested
 
-        table = new DefaultIntervalTable<Integer>(getIntervalsMap());
+        table = getTestTable();
 
         Assert.assertEquals(table.getValue(5), (Integer) 2);
     }
@@ -132,7 +128,7 @@ public final class TestGetValuesDefaultIntervalMap {
     public final void testLowerLimit() {
         final IntervalTable<Integer> table; // Table tested
 
-        table = new DefaultIntervalTable<Integer>(getIntervalsMap());
+        table = getTestTable();
 
         Assert.assertEquals(table.getLowerLimit(), (Integer) 1);
     }
@@ -144,25 +140,24 @@ public final class TestGetValuesDefaultIntervalMap {
     public final void testUpperLimit() {
         final IntervalTable<Integer> table; // Table tested
 
-        table = new DefaultIntervalTable<Integer>(getIntervalsMap());
+        table = getTestTable();
 
         Assert.assertEquals(table.getUpperLimit(), (Integer) 10);
     }
 
     /**
-     * Returns the values used to initialize the table.
+     * Returns the table to be tested.
      * 
-     * @return the values used to initialize the table.
+     * @return the table to be tested
      */
-    private final Map<Interval, Integer> getIntervalsMap() {
-        final Map<Interval, Integer> map;
+    private final DefaultIntervalTable<Integer> getTestTable() {
+        final DefaultIntervalTable<Integer> table;
 
-        map = new LinkedHashMap<Interval, Integer>();
-        map.put(new DefaultInterval(1, 1), 0);
-        map.put(new DefaultInterval(6, 10), 1);
-        map.put(new DefaultInterval(2, 5), 2);
+        table = new DefaultIntervalTable<Integer>(new DefaultInterval(1, 1), 0);
+        table.addInterval(new DefaultInterval(2, 5), 2);
+        table.addInterval(new DefaultInterval(6, 10), 1);
 
-        return map;
+        return table;
     }
 
 }

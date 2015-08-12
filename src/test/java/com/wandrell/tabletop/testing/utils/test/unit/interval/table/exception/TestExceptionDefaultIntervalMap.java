@@ -15,13 +15,9 @@
  */
 package com.wandrell.tabletop.testing.utils.test.unit.interval.table.exception;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 import org.testng.annotations.Test;
 
 import com.wandrell.tabletop.interval.DefaultInterval;
-import com.wandrell.tabletop.interval.Interval;
 import com.wandrell.tabletop.interval.table.DefaultIntervalTable;
 import com.wandrell.tabletop.interval.table.IntervalTable;
 
@@ -54,25 +50,24 @@ public final class TestExceptionDefaultIntervalMap {
     public final void testGetValue_NotFound() {
         final IntervalTable<Integer> table; // Table tested
 
-        table = new DefaultIntervalTable<Integer>(getIntervalsMap());
+        table = getTestTable();
 
         table.getValue(Integer.MAX_VALUE);
     }
 
     /**
-     * Returns the values used to initialize the table.
+     * Returns the table to be tested.
      * 
-     * @return the values used to initialize the table.
+     * @return the table to be tested
      */
-    private final Map<Interval, Integer> getIntervalsMap() {
-        final Map<Interval, Integer> map;
+    private final DefaultIntervalTable<Integer> getTestTable() {
+        final DefaultIntervalTable<Integer> table;
 
-        map = new LinkedHashMap<Interval, Integer>();
-        map.put(new DefaultInterval(1, 1), 0);
-        map.put(new DefaultInterval(2, 5), 2);
-        map.put(new DefaultInterval(6, 10), 1);
+        table = new DefaultIntervalTable<Integer>(new DefaultInterval(1, 1), 0);
+        table.addInterval(new DefaultInterval(2, 5), 2);
+        table.addInterval(new DefaultInterval(6, 10), 1);
 
-        return map;
+        return table;
     }
 
 }

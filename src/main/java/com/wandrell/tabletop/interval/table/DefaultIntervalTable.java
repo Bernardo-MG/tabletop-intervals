@@ -70,32 +70,40 @@ public final class DefaultIntervalTable<V> implements IntervalTable<V> {
     /**
      * Constructs a {@code DefaultIntervalTable} with the specified parameters.
      * 
-     * @param intervals
-     *            the intervals and their assigned value
+     * @param lowerLimit
+     *            initial interval's lower limit
+     * @param upperLimit
+     *            initial interval's upper limit
+     * @param value
+     *            initial interval's value
      */
-    public DefaultIntervalTable(final Map<Interval, V> intervals) {
+    public DefaultIntervalTable(final Interval interval, final V value) {
         super();
 
-        checkNotNull(intervals, "Received a null pointer as intervals");
+        checkNotNull(interval, "Received a null pointer as interval");
+        checkNotNull(value, "Received a null pointer as value");
 
-        final TreeMap<Interval, V> sortedIntervals;
+        getIntervalsModifiable().put(interval, value);
+    }
 
-        sortedIntervals = new TreeMap<Interval, V>(new IntervalComparator());
+    /**
+     * Adds the specified interval and it's assigned value.
+     * <p>
+     * The interval should be adjacent to the upper limit of the table.
+     * 
+     * @param interval
+     *            interval to add
+     * @param value
+     *            value assigned to the interval
+     */
+    public final void addInterval(final Interval interval, final V value) {
+        checkNotNull(interval, "Received a null pointer as interval");
+        checkNotNull(value, "Received a null pointer as value");
 
-        sortedIntervals.putAll(intervals);
+        checkArgument(getUpperLimit() == interval.getLowerLimit() - 1,
+                "The interval is not adjacent to the upper limit");
 
-        for (final Entry<Interval, V> entry : sortedIntervals.entrySet()) {
-            checkNotNull(entry.getKey(), "Received a null pointer as interval");
-            checkNotNull(entry.getValue(), "Received a null pointer as value");
-
-            if (!getIntervalsModifiable().isEmpty()) {
-                checkArgument(IntervalArithmeticsUtils.isNextTo(
-                        getIntervalsModifiable().lastKey(), entry.getKey()),
-                        "Intervals are not continuous");
-            }
-
-            getIntervalsModifiable().put(entry.getKey(), entry.getValue());
-        }
+        getIntervalsModifiable().put(interval, value);
     }
 
     @Override
