@@ -45,7 +45,7 @@
 			<uniqueVersion>false</uniqueVersion>
 			<id>releases</id>
 			<name>Releases Repository</name>
-			<url>https://api.bintray.com/maven/bernardo-mg/tabletop-toolkits/tabletop-intervals</url>
+			<url>https://api.bintray.com/maven/bernardo-mg/tabletop-toolkits/intervals</url>
 		</repository>
 		<snapshotRepository>
 			<uniqueVersion>false</uniqueVersion>
