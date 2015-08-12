@@ -23,7 +23,20 @@ import org.testng.annotations.Test;
 import com.wandrell.tabletop.interval.DefaultInterval;
 import com.wandrell.tabletop.interval.Interval;
 import com.wandrell.tabletop.interval.table.DefaultIntervalTable;
+import com.wandrell.tabletop.interval.table.IntervalTable;
 
+/**
+ * Unit test for {@link IntervalTable}, checking that exceptions are thrown when
+ * initializing with a non continuous set of intervals.
+ * <p>
+ * Checks the following cases:
+ * <ol>
+ * <li>An {@code IndexOutOfBoundsException} is thrown when acquiring a the value
+ * for a number out of the interval.</li>
+ * </ol>
+ * 
+ * @author Bernardo Martínez Garrido
+ */
 public final class TestExceptionGapsDefaultIntervalMap {
 
     public TestExceptionGapsDefaultIntervalMap() {

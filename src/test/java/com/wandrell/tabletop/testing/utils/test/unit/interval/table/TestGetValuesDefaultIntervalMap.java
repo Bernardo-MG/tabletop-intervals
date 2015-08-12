@@ -19,7 +19,6 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.wandrell.tabletop.interval.DefaultInterval;
@@ -27,66 +26,141 @@ import com.wandrell.tabletop.interval.Interval;
 import com.wandrell.tabletop.interval.table.DefaultIntervalTable;
 import com.wandrell.tabletop.interval.table.IntervalTable;
 
+/**
+ * Unit test for {@link IntervalTable}, checking that the query methods work
+ * correctly.
+ * <p>
+ * Checks the following cases:
+ * <ol>
+ * <li>Acquiring the table's lower limit works as expected.</li>
+ * <li>Acquiring the table's upper limit works as expected.</li>
+ * <li>Acquiring the first interval's upper limit works as expected.</li>
+ * <li>Acquiring the second interval's lower limit works as expected.</li>
+ * <li>Acquiring the second interval's upper limit works as expected.</li>
+ * <li>Acquiring the last interval's upper limit works as expected.</li>
+ * <li>Acquiring the value for the first interval works as expected.</li>
+ * <li>Acquiring the value for the second interval works as expected.</li>
+ * </ol>
+ * 
+ * @author Bernardo Martínez Garrido
+ */
 public final class TestGetValuesDefaultIntervalMap {
 
-    private IntervalTable<Integer> table;
-
+    /**
+     * Default constructor.
+     */
     public TestGetValuesDefaultIntervalMap() {
         super();
     }
 
-    @BeforeClass
-    public final void initialize() {
-        table = new DefaultIntervalTable<Integer>(getIntervalsMap());
-    }
-
+    /**
+     * Tests that acquiring the value for the first interval works as expected.
+     */
     @Test
-    public final void testGetValue_LowerLimit() {
+    public final void testGetValue_FirstInterval() {
+        final IntervalTable<Integer> table; // Table tested
+
+        table = new DefaultIntervalTable<Integer>(getIntervalsMap());
+
         Assert.assertEquals(table.getValue(table.getLowerLimit()), (Integer) 0);
     }
 
+    /**
+     * Tests that acquiring the second interval's lower limit works as expected.
+     */
     @Test
     public final void testGetValue_LowerLimit_SecondInterval() {
+        final IntervalTable<Integer> table; // Table tested
+
+        table = new DefaultIntervalTable<Integer>(getIntervalsMap());
+
         Assert.assertEquals(table.getValue(2), (Integer) 2);
     }
 
+    /**
+     * Tests that acquiring the value for the second interval works as expected.
+     */
     @Test
     public final void testGetValue_SecondInterval() {
+        final IntervalTable<Integer> table; // Table tested
+
+        table = new DefaultIntervalTable<Integer>(getIntervalsMap());
+
         Assert.assertEquals(table.getValue(3), (Integer) 2);
     }
 
+    /**
+     * Tests that acquiring the last interval's upper limit works as expected.
+     */
     @Test
     public final void testGetValue_UpperLimit() {
+        final IntervalTable<Integer> table; // Table tested
+
+        table = new DefaultIntervalTable<Integer>(getIntervalsMap());
+
         Assert.assertEquals(table.getValue(table.getUpperLimit()), (Integer) 1);
     }
 
+    /**
+     * Tests that acquiring the first interval's upper limit works as expected.
+     */
     @Test
     public final void testGetValue_UpperLimit_FirstInterval() {
+        final IntervalTable<Integer> table; // Table tested
+
+        table = new DefaultIntervalTable<Integer>(getIntervalsMap());
+
         Assert.assertEquals(table.getValue(1), (Integer) 0);
     }
 
+    /**
+     * Tests that acquiring the second interval's upper limit works as expected.
+     */
     @Test
     public final void testGetValue_UpperLimit_SecondInterval() {
+        final IntervalTable<Integer> table; // Table tested
+
+        table = new DefaultIntervalTable<Integer>(getIntervalsMap());
+
         Assert.assertEquals(table.getValue(5), (Integer) 2);
     }
 
+    /**
+     * Test that acquiring the table's lower limit works as expected.
+     */
     @Test
     public final void testLowerLimit() {
+        final IntervalTable<Integer> table; // Table tested
+
+        table = new DefaultIntervalTable<Integer>(getIntervalsMap());
+
         Assert.assertEquals(table.getLowerLimit(), (Integer) 1);
     }
 
+    /**
+     * Test that acquiring the table's upper limit works as expected.
+     */
     @Test
     public final void testUpperLimit() {
+        final IntervalTable<Integer> table; // Table tested
+
+        table = new DefaultIntervalTable<Integer>(getIntervalsMap());
+
         Assert.assertEquals(table.getUpperLimit(), (Integer) 10);
     }
 
+    /**
+     * Returns the values used to initialize the table.
+     * 
+     * @return the values used to initialize the table.
+     */
     private final Map<Interval, Integer> getIntervalsMap() {
         final Map<Interval, Integer> map;
 
         map = new LinkedHashMap<Interval, Integer>();
         map.put(new DefaultInterval(1, 1), 0);
-        map.put(new DefaultInterval(2, 5), 2);
         map.put(new DefaultInterval(6, 10), 1);
+        map.put(new DefaultInterval(2, 5), 2);
 
         return map;
     }

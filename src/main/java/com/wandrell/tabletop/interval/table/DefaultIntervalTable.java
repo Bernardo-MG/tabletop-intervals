@@ -33,8 +33,8 @@ import com.wandrell.tabletop.interval.util.IntervalComparator;
 /**
  * Default implementation of {@code IntervalTable}.
  * <p>
- * The table is immutable, and all the intervals used to build it should be
- * consecutive.
+ * The table is immutable, and all the intervals used to build it should create
+ * a consecutive interval.
  * 
  * @author Bernardo Martínez Garrido
  * @param <V>
@@ -126,11 +126,6 @@ public final class DefaultIntervalTable<V> implements IntervalTable<V> {
     @Override
     public final Integer getLowerLimit() {
         return getIntervalsModifiable().firstKey().getLowerLimit();
-    }
-
-    @Override
-    public final String getStringRepresentation() {
-        return String.format("[%d,%d]", getLowerLimit(), getUpperLimit());
     }
 
     @Override

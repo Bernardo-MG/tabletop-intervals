@@ -117,11 +117,6 @@ public final class DefaultInterval implements Interval {
     }
 
     @Override
-    public final String getStringRepresentation() {
-        return String.format("[%d,%d]", getLowerLimit(), getUpperLimit());
-    }
-
-    @Override
     public final Integer getUpperLimit() {
         return getRange().upperEndpoint();
     }

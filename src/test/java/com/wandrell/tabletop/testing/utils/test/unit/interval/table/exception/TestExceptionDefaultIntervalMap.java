@@ -18,8 +18,6 @@ package com.wandrell.tabletop.testing.utils.test.unit.interval.table.exception;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.wandrell.tabletop.interval.DefaultInterval;
@@ -27,39 +25,45 @@ import com.wandrell.tabletop.interval.Interval;
 import com.wandrell.tabletop.interval.table.DefaultIntervalTable;
 import com.wandrell.tabletop.interval.table.IntervalTable;
 
+/**
+ * Unit test for {@link IntervalTable}, checking that exceptions are thrown for
+ * invalid values.
+ * <p>
+ * Checks the following cases:
+ * <ol>
+ * <li>An {@code IndexOutOfBoundsException} is thrown when acquiring a the value
+ * for a number out of the interval.</li>
+ * </ol>
+ * 
+ * @author Bernardo Martínez Garrido
+ */
 public final class TestExceptionDefaultIntervalMap {
 
-    private IntervalTable<Integer> table;
-
+    /**
+     * Default constructor.
+     */
     public TestExceptionDefaultIntervalMap() {
         super();
     }
 
-    @BeforeClass
-    public final void initialize() {
-        table = new DefaultIntervalTable<Integer>(getIntervalsMap());
-    }
-
+    /**
+     * Tests that an {@code IndexOutOfBoundsException} is thrown when acquiring
+     * a the value for a number out of the interval.
+     */
     @Test(expectedExceptions = IndexOutOfBoundsException.class)
-    public final void testGetValue_Max_NotFound_Exception() {
+    public final void testGetValue_NotFound() {
+        final IntervalTable<Integer> table; // Table tested
+
+        table = new DefaultIntervalTable<Integer>(getIntervalsMap());
+
         table.getValue(Integer.MAX_VALUE);
     }
 
-    @Test(expectedExceptions = IndexOutOfBoundsException.class)
-    public final void testGetValue_Min_NotFound_Exception() {
-        table.getValue(Integer.MIN_VALUE);
-    }
-
-    @Test(expectedExceptions = IndexOutOfBoundsException.class)
-    public final void testGetValue_Zero_NotFound_Exception() {
-        table.getValue(0);
-    }
-
-    @Test
-    public final void testUpperLimit() {
-        Assert.assertEquals(table.getUpperLimit(), (Integer) 10);
-    }
-
+    /**
+     * Returns the values used to initialize the table.
+     * 
+     * @return the values used to initialize the table.
+     */
     private final Map<Interval, Integer> getIntervalsMap() {
         final Map<Interval, Integer> map;
 

@@ -25,14 +25,9 @@ import com.wandrell.tabletop.interval.Interval;
  * way to see it is as an interval divided into several smaller intervals, each
  * with a value assigned to it.
  * <p>
- * All the intervals are made of integers, but apart from this there are no
- * other constraints, allowing negative values or not proper intervals to be
- * used.
- * <p>
- * Each of the contained intervals is mapped to a value whose type can not be
- * predicted. Some common values are score points or items such as weapons or
- * armor, but may include more abstract concepts like deployment zones or
- * in-game events.
+ * Each of the contained intervals is mapped to a value, which can be anything.
+ * Some common values are score points or items such as weapons or armor, but
+ * may include more abstract concepts like deployment zones or in-game events.
  * <p>
  * For example, this is Bloodbowl's weather table:
  * <table summary="Interval table example">
@@ -62,9 +57,12 @@ import com.wandrell.tabletop.interval.Interval;
  * </tr>
  * </table>
  * <p>
- * This table is used by rolling two dice of six sides, adding the values, and
- * comparing the result to the first column. Then the event on the second column
- * is applied to the game.
+ * Here weather events are mapped to the different intervals, some of them being
+ * not proper intervals.
+ * <p>
+ * To use this table two dice of six sides are rolled, and the result is
+ * compared to the first column. Then the weather event on the second column is
+ * applied to the game.
  * 
  * @author Bernardo Martínez Garrido
  * @param <V>

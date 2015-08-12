@@ -19,15 +19,47 @@ import org.testng.annotations.Test;
 
 import com.wandrell.tabletop.interval.DefaultInterval;
 
+/**
+ * Unit test for {@link DefaultInterval}, checking that exceptions are thrown
+ * for invalid intervals.
+ * <p>
+ * Checks the following cases:
+ * <ol>
+ * <li>An {@code IllegalArgumentException} is thrown when the constructor
+ * receives and invalid interval.</li>
+ * <li>An {@code IllegalArgumentException} is thrown when the lower limit is set
+ * as higher than the upper limit.</li>
+ * <li>An {@code IllegalArgumentException} is thrown when the upper limit is set
+ * as lower than the lower limit.</li>
+ * </ol>
+ * 
+ * @author Bernardo Martínez Garrido
+ */
 public final class TestExceptionsSetIntervalDefaultInterval {
 
+    /**
+     * Default constructor.
+     */
     public TestExceptionsSetIntervalDefaultInterval() {
         super();
     }
 
+    /**
+     * Tests that an {@code IllegalArgumentException} is thrown when the
+     * constructor receives and invalid interval.
+     */
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public final void testConstructor() {
+        new DefaultInterval(10, 1);
+    }
+
+    /**
+     * Tests that an {@code IllegalArgumentException} is thrown when the lower
+     * limit is set as higher than the upper limit.
+     */
     @Test(expectedExceptions = IllegalArgumentException.class)
     public final void testSetLimits_Lower() {
-        final DefaultInterval interval;
+        final DefaultInterval interval; // Interval being tested
 
         interval = new DefaultInterval();
 
@@ -35,9 +67,13 @@ public final class TestExceptionsSetIntervalDefaultInterval {
         interval.setLowerLimit(10);
     }
 
+    /**
+     * Tests that an {@code IllegalArgumentException} is thrown when the upper
+     * limit is set as lower than the lower limit.
+     */
     @Test(expectedExceptions = IllegalArgumentException.class)
     public final void testSetLimits_Upper() {
-        final DefaultInterval interval;
+        final DefaultInterval interval; // Interval being tested
 
         interval = new DefaultInterval();
 

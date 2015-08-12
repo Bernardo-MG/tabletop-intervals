@@ -23,34 +23,33 @@ import com.wandrell.tabletop.interval.Interval;
 import com.wandrell.tabletop.interval.table.DefaultIntervalTable;
 import com.wandrell.tabletop.interval.table.IntervalTable;
 
+/**
+ * Unit test for {@link IntervalTable}, checking that exceptions are thrown for
+ * invalid values on an empty table.
+ * <p>
+ * Checks the following cases:
+ * <ol>
+ * <li>An {@code IndexOutOfBoundsException} is thrown when acquiring the value
+ * for a number out of the interval.</li>
+ * </ol>
+ * 
+ * @author Bernardo Martínez Garrido
+ */
 public final class TestExceptionEmptyDefaultIntervalTable {
 
+    /**
+     * Default constructor.
+     */
     public TestExceptionEmptyDefaultIntervalTable() {
         super();
     }
 
+    /**
+     * Tests that an {@code IndexOutOfBoundsException} is thrown when acquiring
+     * the value for a number out of the interval.
+     */
     @Test(expectedExceptions = IndexOutOfBoundsException.class)
-    public final void testGetValue_Max_NotFound_Exception() {
-        final IntervalTable<Integer> table;
-
-        table = new DefaultIntervalTable<Integer>(
-                new LinkedHashMap<Interval, Integer>());
-
-        table.getValue(Integer.MAX_VALUE);
-    }
-
-    @Test(expectedExceptions = IndexOutOfBoundsException.class)
-    public final void testGetValue_Min_NotFound_Exception() {
-        final IntervalTable<Integer> table;
-
-        table = new DefaultIntervalTable<Integer>(
-                new LinkedHashMap<Interval, Integer>());
-
-        table.getValue(Integer.MIN_VALUE);
-    }
-
-    @Test(expectedExceptions = IndexOutOfBoundsException.class)
-    public final void testGetValue_Zero_NotFound_Exception() {
+    public final void testGetValue() {
         final IntervalTable<Integer> table;
 
         table = new DefaultIntervalTable<Integer>(

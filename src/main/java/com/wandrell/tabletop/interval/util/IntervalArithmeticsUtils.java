@@ -61,7 +61,7 @@ public final class IntervalArithmeticsUtils {
         if ((!isOverlapped(intervalA, intervalB)) || (intervalA.getLowerLimit()
                 .equals(intervalB.getLowerLimit()))) {
             throw new IllegalArgumentException(
-                    "The intervals are the same or don't overlap");
+                    "The intervals have the same lower limit or don't overlap");
         }
 
         upper = (Math.max(intervalA.getLowerLimit(), intervalB.getLowerLimit())
@@ -106,7 +106,7 @@ public final class IntervalArithmeticsUtils {
         if ((!isOverlapped(intervalA, intervalB)) || (intervalA.getUpperLimit()
                 .equals(intervalB.getUpperLimit()))) {
             throw new IllegalArgumentException(
-                    "The intervals upper limits are the same or the intervals don't overlap");
+                    "The intervals have the same upper limit or don't overlap");
         }
 
         upper = Math.max(intervalA.getUpperLimit(), intervalB.getUpperLimit());

@@ -16,6 +16,10 @@
 /**
  * Provides an API and default implementations for the interval structures used
  * on tabletop games.
+ * <p>
+ * The shape these structures take is always marked by the fact that tabletop
+ * games use dice to generate random numbers. And these commonly contain on
+ * their facets a continuous interval of integers.
  * <h2>Interval</h2>
  * <p>
  * The basic interval is represented by the interface

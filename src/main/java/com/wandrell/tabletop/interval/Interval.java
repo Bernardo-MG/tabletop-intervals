@@ -17,10 +17,14 @@ package com.wandrell.tabletop.interval;
 
 /**
  * Interface for representing integer intervals. This interval will be
- * continuous, closed and discrete, containing only integers.
+ * continuous, closed and discrete, containing only integers. Not proper
+ * intervals, those where both extremes are equal, are considered valid.
  * <p>
  * The only constraint is that the lower limit can't be higher than the upper
  * limit, and viceversa. Also, {@code null} values are expected to be rejected.
+ * <p>
+ * Tabletop games commonly work with integer intervals because they use dice to
+ * generate random values.
  * 
  * @author Bernardo Martínez Garrido
  */
@@ -28,23 +32,19 @@ public interface Interval {
 
     /**
      * Returns interval's upper limit.
+     * <p>
+     * This is the right handed value on it's representation, and should be
+     * higher or equal to the lower limit.
      * 
      * @return the upper limit
      */
     public Integer getLowerLimit();
 
     /**
-     * Returns the interval as a string.
-     * <p>
-     * If the interval has the value 5 as it's lower limit, and the value 7 as
-     * it's upper limit, then the string will be "[5,7]".
-     * 
-     * @return the interval as a string
-     */
-    public String getStringRepresentation();
-
-    /**
      * Returns the interval's lower limit.
+     * <p>
+     * This is the left handed value on it's representation, and should be lower
+     * or equal to the upper limit.
      * 
      * @return the lower limit
      */

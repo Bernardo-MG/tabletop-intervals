@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.wandrell.tabletop.testing.utils.test.unit.interval.function.creation;
+package com.wandrell.tabletop.testing.utils.test.unit.interval.function;
 
 import org.mockito.Mockito;
 import org.testng.Assert;
@@ -22,17 +22,35 @@ import org.testng.annotations.Test;
 import com.wandrell.tabletop.interval.Interval;
 import com.wandrell.tabletop.interval.util.IntervalArithmeticsUtils;
 
-public final class TestLowerDifferenceCreation {
+/**
+ * Unit test for {@link IntervalArithmeticsUtils}, checking that the
+ * {@code getLowerDifference} works correctly.
+ * <p>
+ * Checks the following cases:
+ * <ol>
+ * <li>Common intervals return the expected result.</li>
+ * <li>A not propper interval is accepted.</li>
+ * </ol>
+ * 
+ * @author Bernardo Martínez Garrido
+ */
+public final class TestLowerDifference {
 
-    public TestLowerDifferenceCreation() {
+    /**
+     * Default constructor.
+     */
+    public TestLowerDifference() {
         super();
     }
 
+    /**
+     * Tests that common intervals return the expected result.
+     */
     @Test
     public final void testLowerDifference() {
-        final Interval intervalA;
-        final Interval intervalB;
-        final Interval intervalResult;
+        final Interval intervalA;       // Interval for testing
+        final Interval intervalB;       // Interval for testing
+        final Interval intervalResult;  // Result to validate
 
         intervalA = Mockito.mock(Interval.class);
         intervalB = Mockito.mock(Interval.class);
@@ -50,11 +68,14 @@ public final class TestLowerDifferenceCreation {
         Assert.assertEquals(intervalResult.getUpperLimit(), (Integer) 2);
     }
 
+    /**
+     * Tests that a not propper interval is accepted.
+     */
     @Test
     public final void testLowerDifference_NotProper() {
-        final Interval intervalA;
-        final Interval intervalB;
-        final Interval intervalResult;
+        final Interval intervalA;       // Interval for testing
+        final Interval intervalB;       // Interval for testing
+        final Interval intervalResult;  // Result to validate
 
         intervalA = Mockito.mock(Interval.class);
         intervalB = Mockito.mock(Interval.class);

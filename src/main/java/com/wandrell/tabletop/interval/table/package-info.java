@@ -14,9 +14,9 @@
  * the License.
  */
 /**
- * Provides an API and default implementations for the interval tables.
+ * Provides an API and default implementations for the intervals tables.
  * <p>
- * An interval table is basically an interval divided into several smaller
+ * An intervals table is basically an interval divided into several smaller
  * intervals, each of them with a value assigned to it.
  * <p>
  * Commonly, all the intervals, are integer intervals and, obviously, they
@@ -54,8 +54,9 @@
  * </tr>
  * </table>
  * <p>
- * In this case, two dice of six sides are rolled, and the result is compared to
- * the first column. Then the event on the second column is applied to the game.
+ * To use this table two dice of six sides are rolled, and the result is
+ * compared to the first column. Then the weather event on the second column is
+ * applied to the game.
  * <p>
  * This is all represented by the
  * {@link com.wandrell.tabletop.interval.table.IntervalTable IntervalTable}
