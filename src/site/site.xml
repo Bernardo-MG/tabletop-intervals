@@ -11,9 +11,9 @@
 
 	<custom>
 		<skinConfig>
-			<keywords>Maven, Java, library</keywords>
-			<descriptionUrl>Check the documentation for Tabletop Utils</descriptionUrl>
-			<twitterSite>@bmg</twitterSite>
+			<keywords>Java, RPG, stats</keywords>
+			<descriptionUrl>Check the documentation for ${projectName}</descriptionUrl>
+			<twitterSite>@Wandrell_BMG</twitterSite>
 			<interpreters>
 				<interpreter>JDK 7</interpreter>
 				<interpreter>JDK 8</interpreter>
